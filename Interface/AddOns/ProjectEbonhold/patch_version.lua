@@ -1,7 +1,7 @@
 -- =======================================================
 -- PROJECT EBONHOLD - DETECTOR DE ACTUALIZACIÓN DEL PARCHE
 -- =======================================================
-EBONHOLD_PATCH_VERSION = 20260904 -- GitHub Actions actualiza este numero solo
+EBONHOLD_PATCH_VERSION = 20260904
 local GITHUB_REPO_URL = "https://github.com/clanhater/Ebonhold-Spanish-Patch/releases/latest"
 
 local f = CreateFrame("Frame")
