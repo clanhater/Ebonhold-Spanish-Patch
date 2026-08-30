@@ -557,7 +557,7 @@ end
 -- =======================================================
 -- CONTROL DE VERSIÓN DEL PARCHE EN ESPAÑOL
 -- =======================================================
-EBON_LOCAL_VERSION = 20260904 -- GitHub Actions actualiza este numero solo
+EBON_LOCAL_VERSION = 20260904
 local GITHUB_RELEASE_URL = "https://github.com/clanhater/Ebonhold-Spanish-Patch/releases/latest"
 
 function CharacterSelect_ActualizarBotonParche()
@@ -567,9 +567,9 @@ function CharacterSelect_ActualizarBotonParche()
     local ultimaVersion = EBON_LATEST_SEEN_VERSION or EBON_LOCAL_VERSION;
 
     if ultimaVersion > EBON_LOCAL_VERSION then
-        boton:SetText("|cffff2020⚠️ ¡Actualización Disponible!|r");
+        boton:SetText("|cffff2020[ES] Actualizar|r");
     else
-        boton:SetText("|cff00ff00🇪🇸 Parche ES v" .. EBON_LOCAL_VERSION .. "|r");
+        boton:SetText("|cff00ff00[ES] Parche v" .. EBON_LOCAL_VERSION .. "|r");
     end
 end
 

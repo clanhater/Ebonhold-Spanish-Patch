@@ -201,28 +201,65 @@
 							</OnUpdate>
 						</Scripts>
 					</Button>
-					<Button name="CharSelectSpanishPatchButton" inherits="GlueButtonTemplate" text="🇪🇸 Parche ES v2026.09.04">
+					<Button name="CharSelectSpanishPatchButton" inherits="GlueButtonTemplate" text="[ES] Parche v20260904">
 						<Size>
-							<AbsDimension x="200" y="30"/>
+							<AbsDimension x="185" y="30"/>
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOM" relativeTo="CharSelectEnterWorldButton" relativePoint="TOP">
+							<Anchor point="BOTTOMLEFT">
 								<Offset>
-									<AbsDimension x="0" y="8"/>
+									<AbsDimension x="20" y="62"/>
 								</Offset>
 							</Anchor>
 						</Anchors>
+						<Frames>
+							<!-- Mini-tooltip propio: 100% independiente y libre de errores de Lua -->
+							<Frame name="$parentTooltipFrame" hidden="true" frameStrata="TOOLTIP">
+								<Size>
+									<AbsDimension x="240" y="70"/> <!-- Incrementado a 70 para dar aire al texto -->
+								</Size>
+								<Anchors>
+									<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+											<AbsDimension x="0" y="6"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+									<BackgroundInsets>
+										<AbsInset left="4" right="4" top="4" bottom="4"/>
+									</BackgroundInsets>
+									<TileSize>
+										<AbsValue val="16"/>
+									</TileSize>
+									<EdgeSize>
+										<AbsValue val="16"/>
+									</EdgeSize>
+								</Backdrop>
+								<Layers>
+									<Layer level="ARTWORK">
+										<!-- Se reemplazaron los saltos de línea físicos por &#10; y se agregó wordwrap="true" -->
+										<FontString name="$parentText" inherits="GlueFontNormalSmall" justifyH="LEFT" wordwrap="true" text="|cff00ff00Parche en Español&#10;|rHaz clic para abrir GitHub&#10;y comprobar o descargar la última versión.">
+											<Size>
+												<AbsDimension x="220" y="55"/>
+											</Size>
+											<Anchors>
+												<Anchor point="CENTER"/>
+											</Anchors>
+										</FontString>
+									</Layer>
+								</Layers>
+							</Frame>
+						</Frames>
 						<Scripts>
 							<OnClick>
 								CharSelectSpanishPatch_OnClick();
 							</OnClick>
 							<OnEnter>
-								GlueTooltip:SetOwner(self, "ANCHOR_TOP");
-								GlueTooltip:SetText("|cff00ff00Parche de Traducción en Español|r\n\nHaz clic para abrir la página oficial de GitHub y comprobar o descargar la última versión.", 1.0, 1.0, 1.0);
-								GlueTooltip:Show();
+								CharSelectSpanishPatchButtonTooltipFrame:Show();
 							</OnEnter>
 							<OnLeave>
-								GlueTooltip:Hide();
+								CharSelectSpanishPatchButtonTooltipFrame:Hide();
 							</OnLeave>
 						</Scripts>
 					</Button>
