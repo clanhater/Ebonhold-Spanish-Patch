@@ -555,33 +555,26 @@ function CharacterSelect_DeathKnightSwap(self)
 end
 
 -- =======================================================
--- INTEGRACIÓN DEL PARCHE EN ESPAÑOL (EBONHOLD STUDIO)
+-- CONTROL DE VERSIÓN DEL PARCHE EN ESPAÑOL
 -- =======================================================
-EBON_LOCAL_VERSION = 20260904 
+EBON_LOCAL_VERSION = 20260904 -- GitHub Actions actualiza este numero solo
 local GITHUB_RELEASE_URL = "https://github.com/clanhater/Ebonhold-Spanish-Patch/releases/latest"
 
 function CharacterSelect_ActualizarBotonParche()
     local boton = CharSelectSpanishPatchButton;
     if not boton then return end
 
-    -- Leemos la última versión que el juego vio en el servidor
-    local ultimaVersionDetectada = EBON_LATEST_SEEN_VERSION or EBON_LOCAL_VERSION;
+    local ultimaVersion = EBON_LATEST_SEEN_VERSION or EBON_LOCAL_VERSION;
 
-    if ultimaVersionDetectada > EBON_LOCAL_VERSION then
-        -- HAY ACTUALIZACIÓN: Botón Rojo/Amarillo de Alerta
+    if ultimaVersion > EBON_LOCAL_VERSION then
         boton:SetText("|cffff2020⚠️ ¡Actualización Disponible!|r");
-        boton.tieneUpdate = true;
     else
-        -- ESTÁ AL DÍA: Botón Verde Oficial
         boton:SetText("|cff00ff00🇪🇸 Parche ES v" .. EBON_LOCAL_VERSION .. "|r");
-        boton.tieneUpdate = false;
     end
 end
 
 function CharSelectSpanishPatch_OnClick()
     PlaySound("gsCharacterSelectionAcctOptions");
-    
-    -- Si hace clic, abre directamente la página de descarga con la DLL
     if EbonholdOpenURL then
         EbonholdOpenURL(GITHUB_RELEASE_URL);
     else

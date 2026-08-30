@@ -13,19 +13,33 @@ jobs:
     steps:
       - name: 1. Descargar archivos del repositorio
         uses: actions/checkout@v4
-        
-      - name: 2. Inyectar versión actual en el parche
-        shell: bash
+
+      - name: 2. Inyectar versión actual en los archivos Lua
+        shell: pwsh
         run: |
-          VERSION_NUM=$(date +'%Y%m%d')
-          sed -i "s/EBON_LOCAL_VERSION = [0-9]*/EBON_LOCAL_VERSION = $VERSION_NUM/" Interface/AddOns/ProjectEbonhold/patch_version.lua || true
+          $version = Get-Date -Format "yyyyMMdd"
+          $fechaLegible = Get-Date -Format "dd/MM/yyyy - HH:mm UTC"
+          Write-Host "Inyectando version: $version ($fechaLegible)"
+          
+          # Guardar fecha para el Release
+          Add-Content -Path $env:GITHUB_ENV -Value "BUILD_DATE=$fechaLegible"
+          Add-Content -Path $env:GITHUB_ENV -Value "BUILD_VER=$version"
 
-      - name: 3. Generar fecha de compilación
-        id: date
-        shell: bash
-        run: echo "BUILD_DATE=$(date +'%d/%m/%Y - %H:%M UTC')" >> $GITHUB_ENV
+          # Actualizar en CharacterSelect.lua si existe
+          $csPath = "Interface\GlueXML\CharacterSelect.lua"
+          if (Test-Path $csPath) {
+              (Get-Content $csPath -Encoding UTF8) -replace 'EBON_LOCAL_VERSION\s*=\s*\d+', "EBON_LOCAL_VERSION = $version" | Set-Content $csPath -Encoding UTF8
+              Write-Host "Actualizado: $csPath"
+          }
 
-      - name: 4. Construir script para MPQEditor
+          # Actualizar en patch_version.lua si existe
+          $pvPath = "Interface\AddOns\ProjectEbonhold\patch_version.lua"
+          if (Test-Path $pvPath) {
+              (Get-Content $pvPath -Encoding UTF8) -replace 'EBONHOLD_PATCH_VERSION\s*=\s*\d+', "EBONHOLD_PATCH_VERSION = $version" | Set-Content $pvPath -Encoding UTF8
+              Write-Host "Actualizado: $pvPath"
+          }
+
+      - name: 3. Construir script para MPQEditor
         shell: cmd
         run: |
           echo new patch-Z.mpq 4096 > script_mpq.txt
@@ -33,27 +47,28 @@ jobs:
           if exist Interface echo add patch-Z.mpq Interface\* Interface /r /c /auto >> script_mpq.txt
           echo close patch-Z.mpq >> script_mpq.txt
 
-      - name: 5. Compilar archivo binario MPQ
+      - name: 4. Compilar archivo binario MPQ
         shell: cmd
         run: |
           MPQEditor.exe /console script_mpq.txt
 
-      - name: 6. Publicar Release Oficial en GitHub
+      - name: 5. Publicar Release Oficial en GitHub
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: "Project Ebonhold ES — Última Versión"
+          name: "Project Ebonhold ES — v${{ env.BUILD_VER }}"
           body: |
             ### 🇪🇸 Parche de Localización al Español (WoW 3.3.5)
             
+            **Versión:** `v${{ env.BUILD_VER }}`  
             **Fecha de compilación:** `${{ env.BUILD_DATE }}`
             
             ---
             
-            ### 📦 Archivos incluidos en esta versión:
+            ### 📦 Novedades incluidas en esta versión:
             * Base de datos completa traducida (`Spell.dbc`, `SpellItemEnchantment.dbc`, etc.).
             * Módulos de interfaz actualizados (Diario de Ecos, Árbol de Habilidades, Prestigio y Colecciones).
-            * Correcciones y adaptaciones alineadas a la última versión del servidor.
+            * Sincronización automática de versiones y aviso de actualización dentro del juego.
             
             ---
             
