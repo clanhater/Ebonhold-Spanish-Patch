@@ -18,7 +18,7 @@ jobs:
         shell: bash
         run: |
           VERSION_NUM=$(date +'%Y%m%d')
-          sed -i "s/EBONHOLD_PATCH_VERSION = [0-9]*/EBONHOLD_PATCH_VERSION = $VERSION_NUM/" Interface/AddOns/ProjectEbonhold/patch_version.lua || true
+          sed -i "s/EBON_LOCAL_VERSION = [0-9]*/EBON_LOCAL_VERSION = $VERSION_NUM/" Interface/AddOns/ProjectEbonhold/patch_version.lua || true
 
       - name: 3. Generar fecha de compilación
         id: date
