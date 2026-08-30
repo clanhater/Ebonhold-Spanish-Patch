@@ -1,0 +1,37 @@
+name: Compilar y Publicar patch-Z.mpq
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: 1. Descargar archivos traducidos
+        uses: actions/checkout@v4
+
+      - name: 2. Generar script limpio de MPQ (sin archivos de git)
+        shell: cmd
+        run: |
+          echo new patch-Z.mpq 4096 > script_mpq.txt
+          if exist DBFilesClient echo add patch-Z.mpq DBFilesClient\* DBFilesClient /r /c /auto >> script_mpq.txt
+          if exist Interface echo add patch-Z.mpq Interface\* Interface /r /c /auto >> script_mpq.txt
+          echo close patch-Z.mpq >> script_mpq.txt
+
+      - name: 3. Compilar patch-Z.mpq en la nube
+        shell: cmd
+        run: |
+          MPQEditor.exe /console script_mpq.txt
+
+      - name: 4. Publicar automáticamente en GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Parche en Español (Última versión)"
+          body: "Parche compilado automáticamente en la nube con las últimas traducciones."
+          files: patch-Z.mpq
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
