@@ -13,13 +13,19 @@ jobs:
     steps:
       - name: 1. Descargar archivos del repositorio
         uses: actions/checkout@v4
+        
+      - name: 2. Inyectar versión actual en el parche
+        shell: bash
+        run: |
+          VERSION_NUM=$(date +'%Y%m%d')
+          sed -i "s/EBONHOLD_PATCH_VERSION = [0-9]*/EBONHOLD_PATCH_VERSION = $VERSION_NUM/" Interface/AddOns/ProjectEbonhold/patch_version.lua || true
 
-      - name: 2. Generar fecha de compilación
+      - name: 3. Generar fecha de compilación
         id: date
         shell: bash
         run: echo "BUILD_DATE=$(date +'%d/%m/%Y - %H:%M UTC')" >> $GITHUB_ENV
 
-      - name: 3. Construir script para MPQEditor
+      - name: 4. Construir script para MPQEditor
         shell: cmd
         run: |
           echo new patch-Z.mpq 4096 > script_mpq.txt
@@ -27,12 +33,12 @@ jobs:
           if exist Interface echo add patch-Z.mpq Interface\* Interface /r /c /auto >> script_mpq.txt
           echo close patch-Z.mpq >> script_mpq.txt
 
-      - name: 4. Compilar archivo binario MPQ
+      - name: 5. Compilar archivo binario MPQ
         shell: cmd
         run: |
           MPQEditor.exe /console script_mpq.txt
 
-      - name: 5. Publicar Release Oficial en GitHub
+      - name: 6. Publicar Release Oficial en GitHub
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
