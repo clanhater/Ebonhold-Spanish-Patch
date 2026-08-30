@@ -1,4 +1,4 @@
-name: Compilar y Publicar patch-Z.mpq
+name: Compilar y Publicar Parche Oficial
 
 on:
   push:
@@ -7,13 +7,19 @@ on:
 
 jobs:
   build:
+    name: Compilación y Lanzamiento de Release
     runs-on: windows-latest
 
     steps:
-      - name: 1. Descargar archivos traducidos
+      - name: 1. Descargar archivos del repositorio
         uses: actions/checkout@v4
 
-      - name: 2. Generar script limpio de MPQ (sin archivos de git)
+      - name: 2. Generar fecha de compilación
+        id: date
+        shell: bash
+        run: echo "BUILD_DATE=$(date +'%d/%m/%Y - %H:%M UTC')" >> $GITHUB_ENV
+
+      - name: 3. Construir script para MPQEditor
         shell: cmd
         run: |
           echo new patch-Z.mpq 4096 > script_mpq.txt
@@ -21,17 +27,34 @@ jobs:
           if exist Interface echo add patch-Z.mpq Interface\* Interface /r /c /auto >> script_mpq.txt
           echo close patch-Z.mpq >> script_mpq.txt
 
-      - name: 3. Compilar patch-Z.mpq en la nube
+      - name: 4. Compilar archivo binario MPQ
         shell: cmd
         run: |
           MPQEditor.exe /console script_mpq.txt
 
-      - name: 4. Publicar automáticamente en GitHub Releases
+      - name: 5. Publicar Release Oficial en GitHub
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: "Parche en Español (Última versión)"
-          body: "Parche compilado automáticamente en la nube con las últimas traducciones."
+          name: "Project Ebonhold ES — Última Versión"
+          body: |
+            ### 🇪🇸 Parche de Localización al Español (WoW 3.3.5)
+            
+            **Fecha de compilación:** `${{ env.BUILD_DATE }}`
+            
+            ---
+            
+            ### 📦 Archivos incluidos en esta versión:
+            * Base de datos completa traducida (`Spell.dbc`, `SpellItemEnchantment.dbc`, etc.).
+            * Módulos de interfaz actualizados (Diario de Ecos, Árbol de Habilidades, Prestigio y Colecciones).
+            * Correcciones y adaptaciones alineadas a la última versión del servidor.
+            
+            ---
+            
+            ### 📥 Instalación Rápida:
+            1. Descarga el archivo **`patch-Z.mpq`** adjunto abajo.
+            2. Cópialo en tu carpeta **`World of Warcraft/Data/`**.
+            3. Inicia el juego (Requiere cliente base en inglés `enUS`).
           files: patch-Z.mpq
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
