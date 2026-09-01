@@ -277,15 +277,10 @@
 								self:HighlightText();
 							</OnEditFocusGained>
 							<OnTextChanged>
-								local accountName = GetSavedAccountName();
-								if ( accountName ~= "" and accountName ~= self:GetText() ) then
-								SetSavedAccountName("");
-								AccountLoginSaveAccountName:SetChecked(0);
-								end
 								if ( self:GetText() ~= "" ) then
-								AccountLoginAccountEditFill:Hide();
+									AccountLoginAccountEditFill:Hide();
 								else
-								AccountLoginAccountEditFill:Show();
+									AccountLoginAccountEditFill:Show();
 								end
 							</OnTextChanged>
 						</Scripts>
@@ -608,29 +603,27 @@
 						</Scripts>
 					</Button> -->
 					
-					<!-- 1. PRIMERO DEFINIMOS EL CHECKBUTTON -->
+					<!-- 1. CHECKBOX: RECORDAR USUARIO (LADO IZQUIERDO DEL CENTRO) -->
 					<CheckButton name="AccountLoginSaveAccountName">
 						<Size x="20" y="20" />
 						<Anchors>
-							<Anchor point="TOP" relativeTo="AccountLoginPasswordEdit" relativePoint="BOTTOM">
+							<Anchor point="TOPRIGHT" relativeTo="AccountLoginPasswordEdit" relativePoint="BOTTOM">
 								<Offset>
-									<AbsDimension x="-65" y="-12" />
+									<AbsDimension x="-105" y="-10" />
 								</Offset>
 							</Anchor>
 						</Anchors>
 						<Scripts>
-							<OnLoad>
-								if ( GetSavedAccountName() ~= "" ) then
-									self:SetChecked(1);
-								else
-									self:SetChecked(0);
-								end
-							</OnLoad>
 							<OnClick>
 								if ( self:GetChecked() ) then
 									PlaySound("igMainMenuOptionCheckBoxOff");
+									AccountLoginSavePasswordText:Show();
+									AccountLoginSavePassword:Show();
 								else
 									PlaySound("igMainMenuOptionCheckBoxOn");
+									AccountLoginSavePasswordText:Hide();
+									AccountLoginSavePassword:Hide();
+									AccountLoginSavePassword:SetChecked(0);
 								end
 							</OnClick>
 						</Scripts>
@@ -641,7 +634,7 @@
 						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
 					</CheckButton>
 
-					<!-- 2. DESPUÉS EL TEXTO ANCLADO A LA DERECHA DEL BOTÓN -->
+					<!-- 2. TEXTO: RECORDAR USUARIO (SIN LÍMITE DE ANCHO) -->
 					<Frame name="AccountLoginSaveAccountNameTextFrame">
 						<Layers>
 							<Layer level="ARTWORK">
@@ -649,12 +642,66 @@
 									inherits="GlueFontNormalSmall"
 									justifyH="LEFT"
 									justifyV="MIDDLE"
-									text="SAVE_ACCOUNT_NAME">
-									<Size x="200" y="20" />
+									text="Recordar usuario">
 									<Anchors>
 										<Anchor point="LEFT" relativeTo="AccountLoginSaveAccountName" relativePoint="RIGHT">
 											<Offset>
-												<AbsDimension x="6" y="0" />
+												<AbsDimension x="5" y="0" />
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<Shadow>
+										<Offset><AbsDimension x="1" y="-1" /></Offset>
+										<Color r="0" g="0" b="0" />
+									</Shadow>
+									<Color r="1.0" g="0.78" b="0" />
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
+
+					<!-- 3. CHECKBOX: RECORDAR CONTRASEÑA (LADO DERECHO DEL CENTRO) -->
+					<CheckButton name="AccountLoginSavePassword">
+						<Size x="20" y="20" />
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="AccountLoginPasswordEdit" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="20" y="-10" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnClick>
+								if ( self:GetChecked() and AccountLoginSaveAccountName:GetChecked() ) then
+									PlaySound("igMainMenuOptionCheckBoxOff");
+									GlueDialog_Show("REMEMBER_PASSWORD");
+								elseif ( AccountLoginSaveAccountName:GetChecked() ) then
+									PlaySound("igMainMenuOptionCheckBoxOn");
+								else
+									self:SetChecked(0);
+								end
+							</OnClick>
+						</Scripts>
+						<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+						<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+						<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+						<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+						<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+					</CheckButton>
+
+					<!-- 4. TEXTO: RECORDAR CONTRASEÑA (SIN LÍMITE DE ANCHO) -->
+					<Frame name="AccountLoginSavePasswordTextFrame">
+						<Layers>
+							<Layer level="ARTWORK">
+								<FontString name="AccountLoginSavePasswordText"
+									inherits="GlueFontNormalSmall"
+									justifyH="LEFT"
+									justifyV="MIDDLE"
+									text="Recordar contraseña">
+									<Anchors>
+										<Anchor point="LEFT" relativeTo="AccountLoginSavePassword" relativePoint="RIGHT">
+											<Offset>
+												<AbsDimension x="5" y="0" />
 											</Offset>
 										</Anchor>
 									</Anchors>
