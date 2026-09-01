@@ -454,7 +454,7 @@ local function UpdateBanishButtons()
     local rem = GetBanishInfo()
     local remChanged = (rem ~= _lastBanishRem)
     _lastBanishRem = rem
-    local banishLabel = remChanged and ("Desterrar (" .. rem .. ")") or nil
+    local banishLabel = remChanged and ("Banish (" .. rem .. ")") or nil
     for _, frame in ipairs(perkFramePool) do
         if frame.inUse and frame.banishCardButton then
             local btn = frame.banishCardButton
@@ -877,7 +877,7 @@ local function AcquirePerkFrame(parent)
         if button == "RightButton" and IsShiftKeyDown() and self._spellId then
             local link = GetSpellLink(self._spellId)
             if not link or link == "" then
-                local name = GetSpellInfo(self._spellId) or ("Hechizo " .. self._spellId)
+                local name = GetSpellInfo(self._spellId) or ("Spell " .. self._spellId)
                 link = ("|cff71d5ff|Hspell:%d|h[%s]|h|r"):format(self._spellId, name)
             end
             local edit = ChatEdit_ChooseBoxForSend()
@@ -961,7 +961,7 @@ local function AcquirePerkFrame(parent)
         GameTooltip:SetOwner(self.iconFrame, "ANCHOR_RIGHT")
         GameTooltip:ClearLines()
         local sName = GetSpellInfo(self._spellId or 0)
-        GameTooltip:AddLine(sName or ("Hechizo " .. tostring(self._spellId)), qd.color[1], qd.color[2], qd.color[3])
+        GameTooltip:AddLine(sName or ("Spell " .. tostring(self._spellId)), qd.color[1], qd.color[2], qd.color[3])
         GameTooltip:AddLine(qd.name, 0.5, 0.5, 0.5)
         if self._perkData and self._perkData.isGuaranteed then
             GameTooltip:AddLine("Garantizado por tu casilla de build activa", 1, 0.82, 0.1)

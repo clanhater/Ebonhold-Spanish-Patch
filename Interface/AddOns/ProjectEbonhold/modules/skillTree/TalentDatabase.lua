@@ -5804,7 +5804,7 @@ nodes = {
         infinite = true,
         infiniteGrowth = 1.25,
         isStart = true,
-        gainsPerRank = { { amount = 5, label = "Aguante" } },
+        gainsPerRank = { { amount = 5, label = "Stamina" } },
         computedDesc = "Aumenta tu Aguante un %s."
     },
     {

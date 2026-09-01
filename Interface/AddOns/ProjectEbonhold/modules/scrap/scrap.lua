@@ -59,7 +59,7 @@ local function CreateConfigPanel()
   end
 
   local function MakeCheck(name, label, x, y, settingKey, tipTitle, tipText)
-    local cb = CreateFrame("CheckButton", "ProjectEbonholdScrap" .. name .. "Comprobar", panel, "UICheckButtonTemplate")
+    local cb = CreateFrame("CheckButton", "ProjectEbonholdScrap" .. name .. "Check", panel, "UICheckButtonTemplate")
     cb:SetSize(20, 20)
     cb:SetPoint("TOPLEFT", x, y)
     local text = _G[cb:GetName() .. "Text"]
@@ -117,7 +117,7 @@ local function CreateConfigPanel()
   for i, q in ipairs(QUALITIES) do
     local col = (i - 1) % 2
     local row = math.floor((i - 1) / 2)
-    panel.qualityChecks[q.key] = MakeCheck("Calidad" .. i, q.label,
+    panel.qualityChecks[q.key] = MakeCheck("Quality" .. i, q.label,
       12 + col * 128, -90 - row * 22, q.key, "Vender " .. q.label, q.tip)
   end
 
@@ -131,7 +131,7 @@ local function CreateConfigPanel()
     { key = "sellTypeConsumable", label = consumable or "Consumible" },
     { key = "sellTypeTradeGoods", label = tradeGoods or "Objetos comerciables" },
     { key = "sellTypeRecipe",     label = recipe or "Receta" },
-    { key = "sellTypeGem",        label = gem or "Gem" },
+    { key = "sellTypeGem",        label = gem or "Gema" },
     { key = "sellTypeGlyph",      label = glyph or "Glifo" },
     { key = "sellTypeMisc",       label = misc or "Miscelánea" },
   }
@@ -139,7 +139,7 @@ local function CreateConfigPanel()
   for i, t in ipairs(ITEM_TYPES) do
     local col = (i - 1) % 2
     local row = math.floor((i - 1) / 2)
-    panel.typeChecks[t.key] = MakeCheck("Tipo" .. i, t.label,
+    panel.typeChecks[t.key] = MakeCheck("Type" .. i, t.label,
       12 + col * 128, -154 - row * 22, t.key, "Vender " .. t.label,
       "Se aplica a objetos comunes, poco comunes y raros de este tipo.")
   end
@@ -359,14 +359,14 @@ function ScrapButton:OnEnter()
     
     local moneyString = ""
     if gold > 0 then
-      moneyString = format("%d|cFFFFD700o|r ", gold)
+      moneyString = format("%d|cFFFFD700g|r ", gold)
     end
     if silver > 0 or gold > 0 then
-      moneyString = moneyString .. format("%d|cFFC7C7CFp|r ", silver)
+      moneyString = moneyString .. format("%d|cFFC7C7CFs|r ", silver)
     end
     moneyString = moneyString .. format("%d|cFFEDA55Fc|r", copper)
     
-    GameTooltip:AddLine("Value: " .. moneyString, 1, 1, 1)
+    GameTooltip:AddLine("Valor: " .. moneyString, 1, 1, 1)
     GameTooltip:AddLine(" ", 1, 1, 1)
     GameTooltip:AddLine("|cFF888888Clic izquierdo:|r Vender toda la chatarra", 0.8, 0.8, 0.8)
     GameTooltip:AddLine("|cFF888888Alt-clic en un objeto de la bolsa:|r protegerlo / venderlo siempre", 0.8, 0.8, 0.8)

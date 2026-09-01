@@ -541,7 +541,7 @@ local function BuildUI()
                 local icon = GetItemIcon and GetItemIcon(item.itemID)
                 GameTooltip:AddLine(
                     (icon and ("|T" .. icon .. ":16:16|t ") or "") ..
-                    "Mount: " .. name, 0.4, 0.8, 1)
+                    "Montura: " .. name, 0.4, 0.8, 1)
                 hasAny = true
             elseif item.type == "weapon" and (item.itemID or 0) > 0 then
                 local name = item.name
@@ -551,7 +551,7 @@ local function BuildUI()
                 local icon = GetItemIcon and GetItemIcon(item.itemID)
                 GameTooltip:AddLine(
                     (icon and ("|T" .. icon .. ":16:16|t ") or "") ..
-                    "Weapon: " .. name, 1, 0.6, 0.2)
+                    "Arma: " .. name, 1, 0.6, 0.2)
                 hasAny = true
             elseif item.type == "transmogSet" and item.items and #item.items > 0 then
                 local name = item.name
@@ -566,7 +566,7 @@ local function BuildUI()
         end
 
         if ms.title and ms.title.name and ms.title.name ~= "" then
-            GameTooltip:AddLine("Title: " .. ms.title.name, 0.9, 0.6, 1)
+            GameTooltip:AddLine("Título: " .. ms.title.name, 0.9, 0.6, 1)
             hasAny = true
         end
 
@@ -1004,7 +1004,7 @@ local function BuildUI()
             if total >= ms.totalPrestiges then
                 GameTooltip:AddLine("|TInterface\\RaidFrame\\ReadyCheck-Ready:14:14|t Unlocked", 0.2, 1, 0.2)
             else
-                GameTooltip:AddLine("Progress: " .. total .. " / " .. ms.totalPrestiges .. " prestigios", 0.9, 0.9, 0.9)
+                GameTooltip:AddLine("Progreso: " .. total .. " / " .. ms.totalPrestiges .. " prestigios", 0.9, 0.9, 0.9)
             end
             GameTooltip:AddLine(" ")
             GameTooltip:AddLine("Recompensas", 1, 0.82, 0)

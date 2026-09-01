@@ -917,7 +917,7 @@ BuildInfoSections = function(canvas, displayData, startY)
     {
       icon         = ICON_MELEE,
       value        = Pct(s.melee_multiplier),
-      tooltipTitle = "Cuerpo a cuerpo  " .. Pct(s.melee_multiplier),
+      tooltipTitle = "Melee  " .. Pct(s.melee_multiplier),
       tooltipBody  = "Mundo abierto: x" .. Fmt(s.melee_multiplier)
           .. "\nJefe de mazmorra: x" .. Fmt(s.dungeon_boss_melee_mul)
           .. "\nJefe de banda: x" .. Fmt(s.raid_boss_melee_mul)
@@ -927,7 +927,7 @@ BuildInfoSections = function(canvas, displayData, startY)
     {
       icon         = ICON_SPELL,
       value        = Pct(s.spell_multiplier),
-      tooltipTitle = "Hechizo  " .. Pct(s.spell_multiplier),
+      tooltipTitle = "Spell  " .. Pct(s.spell_multiplier),
       tooltipBody  = "Mundo abierto: x" .. Fmt(s.spell_multiplier)
           .. "\nJefe de mazmorra: x" .. Fmt(s.dungeon_boss_spell_mul)
           .. "\nJefe de banda: x" .. Fmt(s.raid_boss_spell_mul)
@@ -986,7 +986,7 @@ BuildInfoSections = function(canvas, displayData, startY)
       tooltipBody  = "PE de misiones: " .. Pct(rw.quest_xp_multiplier) .. "\nPE por muerte:  " .. Pct(rw.creature_xp_multiplier),
     },
     RewardIcon(ICON_SOUL_ASH, rw.soul_ash_multiplier, "Ceniza de alma"),
-    RewardIcon(ICON_REAGENT, rw.reagent_multiplier, "Componentes"),
+    RewardIcon(ICON_REAGENT, rw.reagent_multiplier, "Reagents"),
     {
       icon         = ICON_LOOT,
       value        = extraLootActive and ("+" .. extraLootCount) or nil,
@@ -1075,7 +1075,7 @@ BuildInfoSections = function(canvas, displayData, startY)
         local sid = aura.spellId
         local isActive = activeAuras[sid] or false
         local auraName, _, auraIcon = GetSpellInfo(sid)
-        auraName = auraName or ("Hechizo " .. sid)
+        auraName = auraName or ("Spell " .. sid)
         auraIcon = auraIcon or "Interface\\Icons\\INV_Misc_QuestionMark"
         table.insert(auraItems, {
           icon         = auraIcon,

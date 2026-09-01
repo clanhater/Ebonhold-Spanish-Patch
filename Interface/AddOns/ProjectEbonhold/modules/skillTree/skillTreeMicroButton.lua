@@ -3,7 +3,7 @@ LoadAddOn("Blizzard_TalentUI")
 CreateFrame("Button", "SkillTreeMicroButton", MainMenuBarArtFrame, "MainMenuBarMicroButton")
 
 
-LoadMicroButtonTextures(SkillTreeMicroButton, "Ayuda")
+LoadMicroButtonTextures(SkillTreeMicroButton, "Help")
 
 
 local buttonTexture = [[Interface\AddOns\ProjectEbonhold\assets\inv_soulash]]
@@ -14,7 +14,7 @@ local function setupButton()
     SkillTreeMicroButton:SetPushedTexture([[Interface\AddOns\ProjectEbonhold\assets\ui-microbuttonstreamdl-down]])
     SkillTreeMicroButton:SetHighlightTexture([[Interface\Buttons\UI-MicroButton-Hilight]])
 
-    SkillTreeMicroButton.tooltipText = "Árbol de Habilidades"
+    SkillTreeMicroButton.tooltipText = "Árbol de Hab"
     SkillTreeMicroButton.newbieText = "Abre tu Árbol de Habilidades."
 
     -- Deliberately NOT shown: the unified Character Progression micro button

@@ -185,7 +185,7 @@ end
 
 StaticPopupDialogs["EBONHOLD_ORB_CONFIRM_MULTI"] = {
   text = "¿Olvidar una acumulación de |cffFFD100%d Ecos|r?" .. "\n\n" ..
-    "Se elimina cada uno y se ofrece una nueva opción de Eco en su lugar. El re-roll, " ..
+    "Se elimina cada uno y se ofrece una nueva opción de Eco en su lugar. El cambio, " ..
     "congelar y desterrar de tu run no se aplican a esas tiradas; un orbe más las vuelve a tirar." .. "\n\n" ..
     "Esto consume |cffFFD100%d Orbes de recuerdos perdidos|r.",
   button1 = YES or "Yes",
@@ -316,7 +316,7 @@ local function CreateSpendDialog()
   echoName:SetJustifyH("LEFT")
   f.echoName = echoName
 
-  local slider = CreateFrame("Deslizador", "$parentOrbSlider", f, "OptionsSliderTemplate")
+  local slider = CreateFrame("Slider", "$parentOrbSlider", f, "OptionsSliderTemplate")
   slider:SetPoint("TOP", f, "TOP", 0, -100)
   slider:SetWidth(270)
   slider:SetMinMaxValues(1, 1)
@@ -380,7 +380,7 @@ function OrbService.SpendOn(perkSpellId)
 
   local maxOrbs = MaxSpendableOrbs()
   f.slider:SetMinMaxValues(1, maxOrbs)
-  _G[f.slider:GetName() .. "Alto"]:SetText(tostring(maxOrbs))
+  _G[f.slider:GetName() .. "High"]:SetText(tostring(maxOrbs))
   if maxOrbs <= 1 then f.slider:Disable() else f.slider:Enable() end
   -- Set AFTER the range: a value outside the old range is clamped on the way in, and
   -- OnValueChanged is what paints the dialog, so this is also what fills it in.
@@ -603,7 +603,7 @@ local function CreateAlert(anchor)
     "|cffFFD100Orbe de recuerdos perdidos|r\n\n" ..
     "|cffFFD100Clic izquierdo|r en un Eco para olvidar una acumulación, o |cffFFD100clic derecho|r en varios " ..
     "para olvidarlos juntos, un orbe por cada uno." .. "\n\n" ..
-    "Cada uno saca una nueva opción de Eco. El |cffFF8080re-roll, congelar y desterrar|r de tu run " ..
+    "Cada uno saca una nueva opción de Eco. El |cffFF8080cambio, congelar y desterrar|r de tu run " ..
     "no se aplican a esas tiradas; |cffFFD100otro orbe|r las vuelve a tirar.")
 
   local close = CreateFrame("Button", nil, f, "UIPanelCloseButton")
@@ -793,15 +793,15 @@ SlashCmdList["EBONHOLDORBDEBUG"] = function()
       "  titleFrame = " .. tostring(panel.titleFrame))
   end
 
-  p:AddMessage("|cffFFD100[Orbe]|r bubble = " .. tostring(bubble))
+  p:AddMessage("|cffFFD100[Orb]|r bubble = " .. tostring(bubble))
   if bubble then
     local ok, left, bottom, w, h = pcall(function()
       return bubble:GetLeft(), bubble:GetBottom(), bubble:GetWidth(), bubble:GetHeight()
     end)
-    p:AddMessage("|cffFFD100[Orbe]|r   bubble shown = " .. tostring(bubble:IsShown()) ..
+    p:AddMessage("|cffFFD100[Orb]|r   bubble shown = " .. tostring(bubble:IsShown()) ..
       "  visible = " .. tostring(bubble:IsVisible()) ..
       "  alpha = " .. tostring(bubble:GetAlpha()))
-    p:AddMessage("|cffFFD100[Orbe]|r   left = " .. tostring(bubble:GetLeft()) ..
+    p:AddMessage("|cffFFD100[Orb]|r   left = " .. tostring(bubble:GetLeft()) ..
       "  bottom = " .. tostring(bubble:GetBottom()) ..
       "  size = " .. tostring(bubble:GetWidth()) .. "x" .. tostring(bubble:GetHeight()) ..
       "  strata = " .. tostring(bubble:GetFrameStrata()))
@@ -809,14 +809,14 @@ SlashCmdList["EBONHOLDORBDEBUG"] = function()
 
   -- Last resort: re-anchor to the screen centre so it can be seen at all. Confirms the frame
   -- exists and isolates the problem to the anchor rather than to the creation.
-  p:AddMessage("|cffFFD100[Orbe]|r escribe |cff00FF00/orbdebug center|r para fijarlo en el centro de la pantalla.")
+  p:AddMessage("|cffFFD100[Orb]|r type |cff00FF00/orbdebug center|r to park it mid-screen.")
 end
 
 SLASH_EBONHOLDORBDEBUG2 = "/orbcenter"
 SlashCmdList["EBONHOLDORBDEBUG2"] = function()
   OrbService.EnsureUI()
   if not bubble then
-    DEFAULT_CHAT_FRAME:AddMessage("|cffFF0000[Orbe]|r sin burbuja: el panel de ecos nunca fue publicado.")
+    DEFAULT_CHAT_FRAME:AddMessage("|cffFF0000[Orb]|r no bubble: the echo panel was never published.")
     return
   end
   bubble:SetParent(UIParent)
@@ -824,7 +824,7 @@ SlashCmdList["EBONHOLDORBDEBUG2"] = function()
   bubble:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
   bubble:SetFrameStrata("FULLSCREEN_DIALOG")
   bubble:Show()
-  DEFAULT_CHAT_FRAME:AddMessage("|cffFFD100[Orbe]|r burbuja fijada en el centro de la pantalla.")
+  DEFAULT_CHAT_FRAME:AddMessage("|cffFFD100[Orb]|r bubble parked at screen centre.")
 end
 
 ------------------------------------------------------------

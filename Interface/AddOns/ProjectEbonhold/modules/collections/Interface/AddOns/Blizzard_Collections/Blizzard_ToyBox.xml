@@ -101,7 +101,7 @@
 					<OnTextChanged function="ToyBox_OnSearchTextChanged"/>
 				</Scripts>
 			</EditBox>
-			<Button name="$parentFilterButton" inherits="UIResettableDropdownButtonTemplate" text="FILTER">
+			<Button name="$parentFilterButton" inherits="UIResettableDropdownButtonTemplate" text="FILTRO">
 				<!--KeyValues>
 					<KeyValue key="resetFunction" value="ToyBoxFilterDropDown_ResetFilters" type="global"/>
 				</KeyValues-->

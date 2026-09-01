@@ -65,8 +65,8 @@ local function MatchesFilter(petID)
     end
 
     if not isCollected and not ezCollections.Config.Wardrobe.PetsShowHidden then
-        if bit.band(flags or 0, 0x100) ~= 0 and UnitFactionGroup("player") ~= "Horda" then return false; end
-        if bit.band(flags or 0, 0x200) ~= 0 and UnitFactionGroup("player") ~= "Alianza" then return false; end
+        if bit.band(flags or 0, 0x100) ~= 0 and UnitFactionGroup("player") ~= "Horde" then return false; end
+        if bit.band(flags or 0, 0x200) ~= 0 and UnitFactionGroup("player") ~= "Alliance" then return false; end
     end
 
     if not _sources[sourceType and sourceType + 1 or 12] then

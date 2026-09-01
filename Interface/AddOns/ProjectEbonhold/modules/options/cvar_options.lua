@@ -40,7 +40,7 @@ local NAMEPLATE_CVARS = {
     { name = "nameplateStacking", label = "Modo de apilamiento de placas",
       desc = "El modo 'Inteligente' permite a las placas evitar el empuje de apilamiento si hay suficiente espacio debajo.",
       type = "mode", default = 0, modes = {
-        { value =  0, label = "Superpuestas" },
+        { value =  0, label = "Overlapping" },
         { value =  1, label = "Apiladas (Todas)" },
         { value =  2, label = "Apiladas (Enemigos)" },
         { value =  3, label = "Apiladas (Aliados)" },
@@ -209,7 +209,7 @@ end
 
 local function buildToggle(parent, def, yOffset, hookWheel, contentWidth)
     yOffset = yOffset - 4
-    local cb = CreateFrame("CheckButton", uniqueName("Interruptor"), parent, "InterfaceOptionsCheckButtonTemplate")
+    local cb = CreateFrame("CheckButton", uniqueName("Toggle"), parent, "InterfaceOptionsCheckButtonTemplate")
     cb:SetPoint("TOPLEFT", 16, yOffset)
     _G[cb:GetName() .. "Text"]:SetText(def.label)
     cb.cvarDef = def
@@ -242,13 +242,13 @@ local function buildSlider(parent, def, yOffset, hookWheel, contentWidth)
     yOffset = buildLabelAndDesc(parent, def, yOffset, contentWidth)
     yOffset = yOffset - 8
 
-    local slider = CreateFrame("Deslizador", uniqueName("Deslizador"), parent, "OptionsSliderTemplate")
+    local slider = CreateFrame("Slider", uniqueName("Slider"), parent, "OptionsSliderTemplate")
     slider:SetPoint("TOPLEFT", 22, yOffset)
     slider:SetWidth(260)
     slider:SetMinMaxValues(def.min, def.max)
     slider:SetValueStep(def.step or 1)
     _G[slider:GetName() .. "Low"]:SetText(tostring(def.min))
-    _G[slider:GetName() .. "Alto"]:SetText(tostring(def.max))
+    _G[slider:GetName() .. "High"]:SetText(tostring(def.max))
 
     local valueText = parent:CreateFontString(nil, "ARTWORK", "GameFontNormal")
     valueText:SetPoint("LEFT", slider, "RIGHT", 12, 0)
@@ -277,7 +277,7 @@ local function buildModeDropdown(parent, def, yOffset, hookWheel, contentWidth)
     yOffset = buildLabelAndDesc(parent, def, yOffset, contentWidth)
     yOffset = yOffset - 4
 
-    local dropdown = CreateFrame("Frame", uniqueName("Desplegable"), parent, "UIDropDownMenuTemplate")
+    local dropdown = CreateFrame("Frame", uniqueName("Dropdown"), parent, "UIDropDownMenuTemplate")
     dropdown:SetPoint("TOPLEFT", 6, yOffset)
     UIDropDownMenu_SetWidth(dropdown, 240)
 
@@ -404,7 +404,7 @@ function CVarOptions.Build(parent, yOffset, hookWheel, contentWidth)
     CVarOptions._reloadLabel = reloadNotice
     yOffset = yOffset - 18
 
-    yOffset = buildSection(parent, "Cámara",         CAMERA_CVARS,    yOffset, hookWheel, contentWidth, refreshList)
+    yOffset = buildSection(parent, "Camera",         CAMERA_CVARS,    yOffset, hookWheel, contentWidth, refreshList)
     yOffset = buildSection(parent, "Renderizado de fuentes", { FONT_RENDERING_CVAR }, yOffset, hookWheel, contentWidth, refreshList)
     yOffset = buildSection(parent, "Opciones de Actitud/Forma",  { STANCE_CVAR },  yOffset, hookWheel, contentWidth, refreshList)
 

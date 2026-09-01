@@ -1853,7 +1853,7 @@ local function GetLoadoutRow(i)
     row:SetScript("OnEnter", function(self)
         if not self.loadout then return end
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText(self.loadout.name or "Build", 1, 0.82, 0)
+        GameTooltip:SetText(self.loadout.name or "Loadout", 1, 0.82, 0)
         if self.serverSlot then
             if self.serverLockedCost then
                 GameTooltip:AddLine("Casilla de build bloqueada.\nEl desbloqueo se aplica a todos los personajes de tu cuenta.",
@@ -2104,7 +2104,7 @@ local function GetLoadoutRow(i)
 
     -- Gold purchase of a locked slot (account-wide); only the NEXT slot is
     -- buyable. Big and centered - it is the locked row's only action.
-    row.unlockBtn = utils.CreateSimpleCustomButton(row, "Desbloquear", nil, 180, 32)
+    row.unlockBtn = utils.CreateSimpleCustomButton(row, "Unlock", nil, 180, 32)
     row.unlockBtn:SetPoint("CENTER", row, "CENTER", 0, -8)
     row.unlockBtn:SetScript("OnClick", function()
         if not row.serverSlot or not row.serverLockedCost or not row.serverPurchasable then return end
@@ -3760,7 +3760,7 @@ local echoesTour = ProjectEbonhold.GuidedTour.Create({
                     "haz clic en el eco a olvidar: se elimina una acumulación y se abre " ..
                     "una nueva tirada." ..
                     "\n\n" ..
-                    "El |cffff8080re-roll, congelar y desterrar|r de tu run no se aplican a esa " ..
+                    "El |cffff8080cambio, congelar y desterrar|r de tu run no se aplican a esa " ..
                     "tirada: gastar |cffffd700un orbe más|r en la pantalla de elección es lo que " ..
                     "la vuelve a tirar. Los ecos permanentes no se pueden olvidar." ..
                     "\n\n" ..
@@ -4191,7 +4191,7 @@ local function UpdateLoadoutMenu()
             local cost = (svc.GetServerSlotCostGold and svc.GetServerSlotCostGold(slot)) or 0
             local purchasable = slot == unlocked + 1
             AddRow({
-                text = purchasable and string.format("Unlock slot %d (%dg)", slot, cost)
+                text = purchasable and string.format("Desbloquear ranura %d (%dg)", slot, cost)
                     or ("Casilla bloqueada " .. slot),
                 icon = ASSETS .. "lock",
                 grey = not purchasable,

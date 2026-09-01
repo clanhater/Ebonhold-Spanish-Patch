@@ -43,7 +43,7 @@ local TC = _G.C_TransmogCollection
 -- hide marker and the server maps it to "no visual".
 local HIDE_VISUAL = 4294967295
 function ez:GetHiddenVisualItem() return HIDE_VISUAL end
-function ez:GetHiddenVisualItemName() return TRANSMOG_SLOT_HIDE_VISUAL or "Ocultar" end
+function ez:GetHiddenVisualItemName() return TRANSMOG_SLOT_HIDE_VISUAL or "Hide" end
 
 -- Collected / Not-Collected filter, backed by the CVars FilterVisuals reads.
 -- (Overrides the stub getters so the standard filter menu entries actually work.)

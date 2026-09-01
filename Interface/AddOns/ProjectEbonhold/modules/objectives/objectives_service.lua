@@ -60,7 +60,7 @@ local function ParseSingleObjective(objectiveStr)
     local n = #parts
     if n < 15 then
         DEFAULT_CHAT_FRAME:AddMessage("|cffff5555Objetivos:|r propuesta no interpretable ("
-            .. n .. " fields): " .. string.sub(objectiveStr, 1, 80))
+            .. n .. " campos): " .. string.sub(objectiveStr, 1, 80))
         return nil
     end
     local tiers    = (n >= 17) and 6 or 5      -- normal + hc1..hc4 [+ hc5]

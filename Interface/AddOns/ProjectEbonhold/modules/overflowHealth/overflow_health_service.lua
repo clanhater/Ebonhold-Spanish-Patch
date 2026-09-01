@@ -79,7 +79,7 @@ SlashCmdList["OVERFLOWHP"] = function(msg)
         local low = guidToLow(g)
         print("|cff00ffff[OverflowHP]|r GUID del objetivo=" .. tostring(g) ..
             " low=" .. tostring(low) ..
-            " en caché=" .. tostring(low and OH.cache[low] or nil))
+            " cached=" .. tostring(low and OH.cache[low] or nil))
     else
         print("|cff00ffff[OverflowHP]|r /overflowhp dump|target")
     end

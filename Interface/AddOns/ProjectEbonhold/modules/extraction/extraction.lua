@@ -112,8 +112,8 @@ end
 
 StaticPopupDialogs["EBONHOLD_CONFIRM_EXTRACTION"]  = {
     text = "Esto destruirá el objeto y extraerá su afijo.\n\n¿Continuar?",
-    button1 = "Confirmar",
-    button2 = "Cancelar",
+    button1 = "Confirm",
+    button2 = "Cancel",
     OnAccept = function()
         if ExtractionUI.pendingBag and ExtractionUI.pendingSlot then
             ExtractionService.RequestExtraction(ExtractionUI.pendingBag, ExtractionUI.pendingSlot)
@@ -127,8 +127,8 @@ StaticPopupDialogs["EBONHOLD_CONFIRM_EXTRACTION"]  = {
 
 StaticPopupDialogs["EBONHOLD_CONFIRM_APPLY_AFFIX"] = {
     text = "¿Aplicar el afijo seleccionado a este objeto?\n\n¿Continuar?",
-    button1 = "Confirmar",
-    button2 = "Cancelar",
+    button1 = "Confirm",
+    button2 = "Cancel",
     OnAccept = function()
         if ExtractionUI.pendingBag and ExtractionUI.pendingSlot and ExtractionUI.selectedAffixId then
             ExtractionService.RequestApplyAffix(ExtractionUI.selectedAffixId, ExtractionUI.pendingBag,
@@ -251,7 +251,7 @@ frame.bottomBar:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 8, 8)
 frame.bottomBar:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -8, 8)
 frame.bottomBar:SetHeight(BOTTOM_BAR_HEIGHT)
 
-local extractBtn = utils.CreateCustomButton(nil, frame, { width = 120, height = 34 }, "Extraer", nil)
+local extractBtn = utils.CreateCustomButton(nil, frame, { width = 120, height = 34 }, "Extract", nil)
 extractBtn:SetPoint("LEFT", frame.bottomBar, "LEFT", 14, 30)
 extractBtn:Disable()
 extractBtn:Hide()
@@ -290,7 +290,7 @@ local function ClearSlot()
 
     slot.icon:Hide()
     frame.hintText:SetText("|cff888888Coloca un objeto aquí para extraer sus afijos o aplicar cualquier afijo que ya conozcas.|r")
-    extractBtn:SetText("Extraer")
+    extractBtn:SetText("Extract")
     extractBtn:Disable()
     extractBtn:Hide()
     applyBtn:SetText("Elige un afijo")

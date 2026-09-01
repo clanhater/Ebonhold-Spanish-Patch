@@ -176,7 +176,7 @@
 					<Anchor point="LEFT" relativeTo="$parentTab3" relativePoint="RIGHT" x="-16" y="0"/>
 				</Anchors>
 			</Button>
-			<Button name="$parentTab5" inherits="CollectionsJournalTabCutoff" text="Companions" id="5">
+			<Button name="$parentTab5" inherits="CollectionsJournalTabCutoff" text="Compañeros" id="5">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab4" relativePoint="RIGHT" x="-16" y="0"/>
 				</Anchors>

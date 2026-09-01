@@ -92,7 +92,7 @@ local function encodeLoadoutData(loadoutData)
   end
 
   local loadoutId = loadoutData.id or "0"
-  local name = loadoutData.name or "Sin nombre"
+  local name = loadoutData.name or "Unnamed"
   local nodesString = table.concat(nodeParts, ",")
 
   local encoded = loadoutId .. "|" .. name .. "|" .. nodesString

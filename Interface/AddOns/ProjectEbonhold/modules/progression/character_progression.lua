@@ -349,7 +349,7 @@ function CollectionsJournal_UpdateSelectedTab(self)
 
     local icon, title
     if (selected == 1) then icon, title = ICONS.echoes, "Ecos"
-    elseif (selected == 2) then icon, title = ICONS.skilltree, "Árbol de Habilidades"
+    elseif (selected == 2) then icon, title = ICONS.skilltree, "Árbol de Hab"
     elseif (selected == 3) then icon, title = ICONS.transmog, "Transfiguración"
     elseif (selected == 4) then icon, title = ICONS.mounts, MOUNTS
     elseif (selected == 5) then icon, title = ICONS.companions, COMPANIONS

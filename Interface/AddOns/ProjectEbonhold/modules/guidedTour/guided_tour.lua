@@ -77,7 +77,7 @@ function Tour:EnsureFrames()
     box.StepText = box:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
     box.StepText:SetPoint("BOTTOMLEFT", 16, 16)
 
-    box.NextBtn = ShrinkButtonFont(utils.CreateSimpleCustomButton(box, "Siguiente", nil, 70, 20))
+    box.NextBtn = ShrinkButtonFont(utils.CreateSimpleCustomButton(box, "Next", nil, 70, 20))
     box.NextBtn:SetPoint("BOTTOMRIGHT", box, "BOTTOMRIGHT", -12, 12)
 
     -- X = skip the rest; like finishing, it never comes back

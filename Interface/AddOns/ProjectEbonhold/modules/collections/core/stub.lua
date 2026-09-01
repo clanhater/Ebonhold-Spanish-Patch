@@ -112,8 +112,8 @@ ez.Config = {
         -- Camera.lua's CameraOptionsToCameraID is keyed by option NAME. Only
         -- "Classic" is bundled client-side (HD2017/HD2019 come from the server),
         -- so the per-race/per-slot wardrobe cameras resolve against "Classic".
-        CameraOption              = "Clásico",
-        CameraOptionSetup         = "Clásico",
+        CameraOption              = "Classic",
+        CameraOptionSetup         = "Classic",
         CameraPanLimit            = true,
         CameraZoomSmooth          = true,
         CameraZoomSmoothSpeed     = 1,
@@ -217,7 +217,7 @@ function ez:RaiseEvent(event, ...)
             if not ok then
                 local name = frame.GetName and frame:GetName() or tostring(frame)
                 DEFAULT_CHAT_FRAME:AddMessage("|cffff5555[Colecciones] error en el manejador del evento '"
-                    .. tostring(event) .. "' (marco " .. name .. "):|r\n" .. tostring(err))
+                    .. tostring(event) .. "' (frame " .. name .. "):|r\n" .. tostring(err))
             end
         end
     end

@@ -33,10 +33,10 @@ ProjectEbonhold.onEventReceived(ProjectEbonhold.SS.SEND_JUNK_SOLD, function(body
         
         local moneyString = ""
         if gold > 0 then
-            moneyString = gold .. "|cffffd700o|r "
+            moneyString = gold .. "|cffffd700g|r "
         end
         if silver > 0 or gold > 0 then
-            moneyString = moneyString .. silver .. "|cffc7c7c7p|r "
+            moneyString = moneyString .. silver .. "|cffc7c7c7s|r "
         end
         moneyString = moneyString .. copper .. "|cffeda55fc|r"
     end

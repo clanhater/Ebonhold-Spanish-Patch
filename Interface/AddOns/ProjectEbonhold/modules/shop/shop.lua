@@ -107,7 +107,7 @@ end
 
 
 ModernShopDP = ModernShopFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-ModernShopDP:SetText("Tienes " .. 0 .. " DP")
+ModernShopDP:SetText("Tienes " .. 0 .. " DP(s)")
 ModernShopDP:SetFont("Fonts\\FRIZQT__.TTF", 14)
 ModernShopDP:SetPoint("CENTER", ModernShopFrame, "LEFT", 100, -250)
 
@@ -117,7 +117,7 @@ ModernShopDP.Link:SetFont("Fonts\\FRIZQT__.TTF", 10)
 ModernShopDP.Link:SetPoint("CENTER", ModernShopFrame, "LEFT", 100, -265)
 
 function ModernShopDPSetAmount(amount)
-    ModernShopDP:SetText("Tienes " .. tonumber(amount) .. "  DP")
+    ModernShopDP:SetText("Tienes " .. tonumber(amount) .. "  DP(s)")
 end
 
 -- Tilt Icon Top left
@@ -226,11 +226,11 @@ function ModernShop_RenderCategories()
             end
 
             -- Load correct tab
-            if cat.name == "Destacados" then
+            if cat.name == "Featured" then
                 ModernShop_LoadFeaturedTab()
-            elseif cat.name == "Especial" then
+            elseif cat.name == "Special" then
                 ModernShop_LoadSpecialTab()
-            elseif cat.name == "Paquetes" then
+            elseif cat.name == "Packs" then
                 ModernShop_LoadPacksTab()
             else
                 ModernShop_LoadEntriesTab(cat.id)
@@ -260,11 +260,11 @@ function ModernShop_RenderCategories()
             end
 
             -- Load correct tab
-            if cat.name == "Destacados" then
+            if cat.name == "Featured" then
                 ModernShop_LoadFeaturedTab()
-            elseif cat.name == "Especial" then
+            elseif cat.name == "Special" then
                 ModernShop_LoadSpecialTab()
-            elseif cat.name == "Paquetes" then
+            elseif cat.name == "Packs" then
                 ModernShop_LoadPacksTab()
             else
                 ModernShop_LoadEntriesTab(cat.id)
@@ -414,7 +414,7 @@ if not ModernShopBuyButton then
 
     -- Font label
     ModernShopBuyButton.label = ModernShopBuyButton:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    ModernShopBuyButton.label:SetText("|CFF9c9c9b Buy Now")
+    ModernShopBuyButton.label:SetText("|CFF9c9c9b Comprar ahora")
     ModernShopBuyButton.label:SetPoint("CENTER", ModernShopBuyButton.middleTexture, "CENTER")
 
     -- texCoords for Highlights
@@ -489,9 +489,9 @@ function ModernShop_UpdateBuyButtonVisual(state)
 
     --Adjust label color
     if state == "disabled" then
-        ModernShopBuyButton.label:SetText("|CFF9c9c9b Buy Now")
+        ModernShopBuyButton.label:SetText("|CFF9c9c9b Comprar ahora")
     else
-        ModernShopBuyButton.label:SetText("|CFFf7d219 Buy Now")
+        ModernShopBuyButton.label:SetText("|CFFf7d219 Comprar ahora")
     end
 
     ModernShopBuyButton.leftTexture:SetTexCoord(unpack(coords.left))
@@ -1275,11 +1275,11 @@ function ModernShop_LoadSpecialTab()
     label:SetWordWrap(true)
     label:SetFont("Fonts\\FRIZQT__.TTF", 20)
     label:SetText(
-        "|CFFf3dba1 The WoW Token can be sold on the auction house for gold. The auction buyer can then redeem it for 30 days of game time. This Token may not be traded or redeemed; it may only be listed for sale on the Auction House.")
+        "|CFFf3dba1 El Token de WoW se puede vender en la casa de subastas por oro. El comprador de la subasta podrá luego canjearlo por 30 días de tiempo de juego. Este Ficha no se puede comerciar ni canjear; solo se puede poner a la venta en la Casa de Subastas.")
 
     -- Auction Value
     local auctionValue = ModernShopSpecialFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    auctionValue:SetText("|CFFd3b05b Current Auction Value:")
+    auctionValue:SetText("|CFFd3b05b Valor actual de la subasta:")
     auctionValue:SetFont("Fonts\\FRIZQT__.TTF", 18)
     auctionValue:SetPoint("CENTER", label, "CENTER", -50, -150)
 

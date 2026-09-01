@@ -126,8 +126,8 @@ local function ShowIntensityAnimation(oldValue, newValue)
 
     local isPositive = difference > 0
     local text =
-        isPositive and ("|cffA020F0+" .. difference .. "|r Intensidad") or
-        ("|cffA020F0" .. difference .. "|r Intensidad")
+        isPositive and ("|cffA020F0+" .. difference .. "|r Intensity") or
+        ("|cffA020F0" .. difference .. "|r Intensity")
 
 
     local animFrame = CreateFrame("Frame", nil, UIParent)

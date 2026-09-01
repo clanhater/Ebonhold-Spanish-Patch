@@ -49,7 +49,7 @@ ez.Config.Wardrobe.PetsShowHidden       = false
 -- Server-capability gates the shims consult (we do our own summon later).
 -- rawget: the stub's catch-all __index would otherwise return a truthy no-op
 -- function here, so `ez.Features or {}` must bypass the metatable.
-ez.Features = rawget(ez, "Características") or {}
+ez.Features = rawget(ez, "Features") or {}
 ez.Features.AllowMountsAutoUnshift = false
 
 -- Favorites are client-local (SavedVariables); "new"/fanfare is session state.
@@ -74,7 +74,7 @@ end
 --=============================================================================
 -- 2. Collection data model (mirrors the server truth)
 --=============================================================================
-ez.Collections = rawget(ez, "Colecciones") or {}   -- rawget: bypass the __index net
+ez.Collections = rawget(ez, "Collections") or {}   -- rawget: bypass the __index net
 ez.Collections.Mounts       = {}   -- [spellID]    = true   (server-known mounts)
 ez.Collections.Pets         = {}   -- [spellID]    = true
 ez.Collections.Appearances  = {}   -- [displayID]  = true   (collected item visuals, from custom_account_transmog)

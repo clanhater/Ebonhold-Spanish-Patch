@@ -352,7 +352,7 @@ local function GetItemButton(i)
         btn.count = btn:CreateFontString(nil, "OVERLAY")
         btn.count:SetFont(FONT, 11, "OUTLINE")
         btn.count:SetPoint("BOTTOMRIGHT", btn, "BOTTOMRIGHT", -1, 1)
-        btn.cooldown = CreateFrame("Tiempo de reutilización", nil, btn, "CooldownFrameTemplate")
+        btn.cooldown = CreateFrame("Cooldown", nil, btn, "CooldownFrameTemplate")
         btn.cooldown:SetAllPoints(btn)
         btn:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
         btn:Hide()
@@ -539,7 +539,7 @@ local function Render()
     tracker.header:Show()
 
     if db.collapsed then
-        tracker.headerText:SetText(string.format("Objectives (%d)", total))
+        tracker.headerText:SetText(string.format("Objetivos (%d)", total))
         for _, b in pairs(blocks) do b:Hide() end
         for _, m in pairs(tracker.moduleHeaders) do m:Hide() end
         if canSecure then for _, ib in pairs(itemButtons) do ib:Hide() end end
@@ -790,7 +790,7 @@ if QuestLog_Update and hooksecurefunc then
         local watched = WatchedDB()
         for i = 1, (QUESTS_DISPLAYED or 25) do
             local btn = _G["QuestLogTitle" .. i]
-            local check = _G["QuestLogTitle" .. i .. "Comprobar"]
+            local check = _G["QuestLogTitle" .. i .. "Check"]
             if btn and check and btn:IsShown() then
                 local questIndex = btn:GetID()
                 local _, _, _, _, isHeader, _, _, _, questID = GetQuestLogTitle(questIndex)

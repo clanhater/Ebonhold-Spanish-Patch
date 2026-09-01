@@ -1,6 +1,6 @@
 function SetClampedTextureRotation(texture, rotationDegrees)
 	if (rotationDegrees ~= 0 and rotationDegrees ~= 90 and rotationDegrees ~= 180 and rotationDegrees ~= 270) then
-		error("SetRotation: rotationDegrees debe ser 0, 90, 180 o 270");
+		error("SetRotation: rotationDegrees must be 0, 90, 180, or 270");
 		return;
 	end
 

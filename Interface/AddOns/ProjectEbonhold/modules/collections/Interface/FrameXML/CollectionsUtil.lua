@@ -208,7 +208,7 @@ function CollectionWardrobeUtil.AddSourceSetsToTooltip(tooltip, sourceID)
 					state = "Known";
 					iconTexture = [[Interface\AddOns\ProjectEbonhold\modules\collections\Textures\TooltipIcons\KNOWN]];
 				else
-					state = "Desconocido";
+					state = "Unknown";
 					iconTexture = [[Interface\AddOns\ProjectEbonhold\modules\collections\Textures\TooltipIcons\UNKNOWN]];
 				end
 

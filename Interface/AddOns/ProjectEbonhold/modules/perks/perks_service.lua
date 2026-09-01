@@ -20,8 +20,8 @@ Perks.pendingRollsCount = nil  -- Optional: if server sends "N|..." we use this;
 local _charKey = nil
 local function GetPerkPicksMadeCharKey()
     if not _charKey then
-        local realm = GetNormalizedRealmName and GetNormalizedRealmName() or "Desconocido"
-        local name = UnitName and UnitName("player") or "Desconocido"
+        local realm = GetNormalizedRealmName and GetNormalizedRealmName() or "Unknown"
+        local name = UnitName and UnitName("player") or "Unknown"
         _charKey = realm .. "\t" .. name
     end
     return _charKey
@@ -1152,13 +1152,13 @@ ProjectEbonhold.onEventReceived(ProjectEbonhold.SS.SEND_PERK_LOADOUT_RESULT,
                 recoverable = "Esta lista de deseos está esperando ser recuperada, por lo que su contenido está bloqueado. Recupérala o elimínala.",
             }
             UIErrorsFrame:AddMessage(reasons[detail]
-                or ("Build " .. tostring(op) .. " falló (" .. tostring(detail) .. ")."), 1, 0.2, 0.2)
+                or ("Build " .. tostring(op) .. " failed (" .. tostring(detail) .. ")."), 1, 0.2, 0.2)
         elseif status == "OK" and op == "switch" then
             UIErrorsFrame:AddMessage("Build aplicada: tus ecos han sido reemplazados.", 0.1, 1, 0.1)
         elseif status == "OK" and op == "recover" then
             UIErrorsFrame:AddMessage("Lista de deseos recuperada: vuelve a ser una de tus builds.", 0.1, 1, 0.1)
         elseif status == "OK" and op == "unlock" then
-            UIErrorsFrame:AddMessage("Casilla de build " .. tostring(detail) .. " desbloqueada (para toda la cuenta).", 0.1, 1, 0.1)
+            UIErrorsFrame:AddMessage("Casilla de build " .. tostring(detail) .. " unlocked (account-wide).", 0.1, 1, 0.1)
         elseif status == "OK" and op == "upload" then
             -- detail: "<slot>" or "<slot>,<skipped>" when echoes were dropped
             local slot, skipped = tostring(detail):match("^(%d+),?(%d*)$")

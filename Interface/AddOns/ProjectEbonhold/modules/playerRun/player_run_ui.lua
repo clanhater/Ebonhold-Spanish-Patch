@@ -1598,11 +1598,11 @@ local function UpdateEmpowermentDisplay(perksData)
                     local cc = self._countCommon or 0
                     if cl > 0 or ce > 0 or cr > 0 or cu > 0 or cc > 0 then
                         GameTooltip:AddLine(" ")
-                        if cl > 0 then GameTooltip:AddLine("Legendary: " .. cl, 1.0, 0.5, 0.0) end
-                        if ce > 0 then GameTooltip:AddLine("Epic: " .. ce, 0.6, 0.2, 1.0) end
-                        if cr > 0 then GameTooltip:AddLine("Rare: " .. cr, 0.0, 0.4, 1.0) end
-                        if cu > 0 then GameTooltip:AddLine("Uncommon: " .. cu, 0.1, 1.0, 0.1) end
-                        if cc > 0 then GameTooltip:AddLine("Common: " .. cc, 1, 1, 1) end
+                        if cl > 0 then GameTooltip:AddLine("Legendario: " .. cl, 1.0, 0.5, 0.0) end
+                        if ce > 0 then GameTooltip:AddLine("Epico: " .. ce, 0.6, 0.2, 1.0) end
+                        if cr > 0 then GameTooltip:AddLine("Raro: " .. cr, 0.0, 0.4, 1.0) end
+                        if cu > 0 then GameTooltip:AddLine("Poco común: " .. cu, 0.1, 1.0, 0.1) end
+                        if cc > 0 then GameTooltip:AddLine("Común: " .. cc, 1, 1, 1) end
                     end
                     GameTooltip:AddLine(" ")
                     GameTooltip:AddLine("|cffFFD700Clic derecho para desbloquear|r", 1, 1, 0.5, true)
@@ -1815,19 +1815,19 @@ local function UpdateEmpowermentDisplay(perksData)
             if cl > 0 or ce > 0 or cr > 0 or cu > 0 or cc > 0 then
                 GameTooltip:AddLine(" ")
                 if cl > 0 then
-                    GameTooltip:AddLine("Legendary: " .. cl, 1.0, 0.5, 0.0)
+                    GameTooltip:AddLine("Legendario: " .. cl, 1.0, 0.5, 0.0)
                 end
                 if ce > 0 then
-                    GameTooltip:AddLine("Epic: " .. ce, 0.6, 0.2, 1.0)
+                    GameTooltip:AddLine("Epico: " .. ce, 0.6, 0.2, 1.0)
                 end
                 if cr > 0 then
-                    GameTooltip:AddLine("Rare: " .. cr, 0.0, 0.4, 1.0)
+                    GameTooltip:AddLine("Raro: " .. cr, 0.0, 0.4, 1.0)
                 end
                 if cu > 0 then
-                    GameTooltip:AddLine("Uncommon: " .. cu, 0.1, 1.0, 0.1)
+                    GameTooltip:AddLine("Poco común: " .. cu, 0.1, 1.0, 0.1)
                 end
                 if cc > 0 then
-                    GameTooltip:AddLine("Common: " .. cc, 1, 1, 1)
+                    GameTooltip:AddLine("Común: " .. cc, 1, 1, 1)
                 end
             end
             if utils.IsDevRealm() then

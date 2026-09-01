@@ -25,7 +25,7 @@ StaticPopupDialogs["EZCOLLECTIONS_ERROR"] = {
     timeout = 0, whileDead = true, hideOnEscape = true, preferredIndex = 3,
 };
 StaticPopupDialogs["EZCOLLECTIONS_MOUNT_MACRO_CREATE"] = {
-    text = "Arrastrar este botón crea una macro que invoca una montura favorita aleatoria. ¿Deseas crearla?",
+    text = "Dragging this button creates a macro that summons a random favorite mount. Create it?",
     button1 = ACCEPT, button2 = CANCEL,
     timeout = 0, whileDead = true, hideOnEscape = true, preferredIndex = 3,
     -- OnAccept is (re)assigned by ShowMacroPopup at call time
@@ -126,8 +126,8 @@ local function MatchesFilter(mountID)
         -- Check faction (mounts with "Exclude from Journal if faction doesn't match" flag were already filtered out at shouldHideOnChar stage, this check is for mounts without the flag, they should be shown in the list if player opts to view unusable mounts) (currently only applied to uncollected mounts, as necessary checks are not implemented on the server)
         if isFactionSpecific and not isCollected then
             local playerFaction = UnitFactionGroup("player");
-            if playerFaction == "Horda" and faction ~= 0
-            or playerFaction == "Alianza" and faction ~= 1 then
+            if playerFaction == "Horde" and faction ~= 0
+            or playerFaction == "Alliance" and faction ~= 1 then
                 return false;
             end
         end
@@ -408,8 +408,8 @@ function C_MountJournal.GetMountInfoByID(mountID)
         -- Exclude from Journal if faction doesn't match
         if isFactionSpecific and flags and bit.band(flags, 0x4) ~= 0 then
             local playerFaction = UnitFactionGroup("player");
-            if playerFaction == "Horda" and faction ~= 0
-            or playerFaction == "Alianza" and faction ~= 1 then
+            if playerFaction == "Horde" and faction ~= 0
+            or playerFaction == "Alliance" and faction ~= 1 then
                 shouldHideOnChar = true;
             end
         end

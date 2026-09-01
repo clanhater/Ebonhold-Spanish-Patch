@@ -9,7 +9,7 @@ StaticPopupDialogs["CONFIRM_GM_TICKET"] = {
     text =
     "|cFFFF0000ADVERTENCIA:|r Si has encontrado un bug, por favor repórtalo en nuestro Discord o página web.\n\n¿Seguro que deseas contactar con un GM?",
     button1 = "Sí, contactar con un GM",
-    button2 = "Cancelar",
+    button2 = "Cancel",
     OnAccept = function()
         if HelpFrame_ShowFrame then
             HelpFrame_ShowFrame("OpenTicket")
@@ -289,7 +289,7 @@ local function CreateItemRecoveryFrame()
     title:SetTextColor(1, 0.82, 0)
 
 
-    local backButton = utils.CreateSimpleCustomButton(itemRecoveryFrame, "Volver", function()
+    local backButton = utils.CreateSimpleCustomButton(itemRecoveryFrame, "Back", function()
         itemRecoveryFrame:Hide()
         ShowCustomKnowledgeBase()
     end, 100, 32)
@@ -392,7 +392,7 @@ function UpdateItemList(items)
             row.costText:SetWidth(60)
 
 
-            row.recoveryButton = utils.CreateSimpleCustomButton(row, "Recuperar", nil, 90, 28)
+            row.recoveryButton = utils.CreateSimpleCustomButton(row, "Recover", nil, 90, 28)
             row.recoveryButton:SetPoint("RIGHT", row, "RIGHT", -5, 0)
 
             table.insert(itemRows, row)
@@ -415,10 +415,10 @@ function UpdateItemList(items)
 
         local priceText = ""
         if gold > 0 then
-            priceText = priceText .. gold .. "|cFFFFD700o|r "
+            priceText = priceText .. gold .. "|cFFFFD700g|r "
         end
         if silver > 0 or gold > 0 then
-            priceText = priceText .. silver .. "|cFFC7C7CFp|r "
+            priceText = priceText .. silver .. "|cFFC7C7CFs|r "
         end
         priceText = priceText .. copper .. "|cFFEDA55Fc|r"
 

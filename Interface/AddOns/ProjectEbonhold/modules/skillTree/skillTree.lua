@@ -385,7 +385,7 @@ local function addInfiniteSpellTooltip(tooltip, btn, spellName, rank)
             end
         end
         if #deltas > 0 then
-            local sep = btn.gainsExclusive and " o " or ", "
+            local sep = btn.gainsExclusive and " or " or ", "
             tooltip:AddLine("Siguiente rango: " .. table.concat(deltas, sep), 0.8, 0.8, 0.8, true)
         end
     end
@@ -651,7 +651,7 @@ end
 
 local TreeNodes = {}
 local Links = {}
-currentClass = "Mago"
+currentClass = "Mage"
 
 
 local function DetectPlayerClass()
@@ -670,7 +670,7 @@ local function DetectPlayerClass()
         ["WARLOCK"] = "Brujo",
         ["DRUID"] = "Druida"
     }
-    local detectedClass = classMapping[playerClass] or "Mago"
+    local detectedClass = classMapping[playerClass] or "Mage"
     DebugPrint("Clase del jugador detectada: %s (API: %s)", detectedClass,
         playerClass or "unknown")
     return detectedClass
@@ -827,7 +827,7 @@ end
 
 local function CreateLoadoutPackage()
     local loadoutId = 0
-    local loadoutName = currentLoadoutName or "Sin nombre"
+    local loadoutName = currentLoadoutName or "Unnamed"
 
     if currentLoadoutName and currentLoadoutName ~= "" and
         savedLoadouts[currentLoadoutName] then
@@ -2858,7 +2858,7 @@ local function ShowChoiceButtons(btn)
                     spellName = "Hechizo inválido (" .. spellID .. ")"
                 end
                 DebugPrint("|cff00FF00Opción seleccionada: " ..
-                    (spellName or "Desconocido") .. "|r")
+                    (spellName or "Unknown") .. "|r")
 
 
                 HideChoiceButtons(btn)

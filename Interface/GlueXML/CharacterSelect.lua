@@ -557,7 +557,7 @@ end
 -- =======================================================
 -- CONTROL DE VERSIÓN DEL PARCHE EN ESPAÑOL
 -- =======================================================
-EBON_LOCAL_VERSION = 20260904
+EBON_LOCAL_VERSION = 20260831
 local GITHUB_RELEASE_URL = "https://github.com/clanhater/Ebonhold-Spanish-Patch/releases/latest"
 
 function CharacterSelect_ActualizarBotonParche()

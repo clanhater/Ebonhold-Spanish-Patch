@@ -678,15 +678,15 @@ end
 -- Perk family art, shared by the choice cards, the run panel and the journal.
 -- Short aliases map onto the same texture as their "... DPS" spelling.
 utils.PerkFamilyIcons = {
-    ["Tanque"]          = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\tank",
-    ["Supervivencia"] = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\survivability",
-    ["Sanador"]        = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\healer",
+    ["Tank"]          = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\tank",
+    ["Survivability"] = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\survivability",
+    ["Healer"]        = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\healer",
     ["Caster"]        = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\caster_dps",
-    ["DPS taumaturgo"]    = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\caster_dps",
+    ["Caster DPS"]    = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\caster_dps",
     ["Melee"]         = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\melee_dps",
-    ["DPS cuerpo a cuerpo"]     = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\melee_dps",
-    ["A distancia"]        = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\ranged_dps",
-    ["DPS a distancia"]    = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\ranged_dps",
+    ["Melee DPS"]     = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\melee_dps",
+    ["Ranged"]        = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\ranged_dps",
+    ["Ranged DPS"]    = "Interface\\AddOns\\ProjectEbonhold\\assets\\perk_families\\ranged_dps",
 }
 
 -- Families as inline tooltip icons. A family with no art falls back to its

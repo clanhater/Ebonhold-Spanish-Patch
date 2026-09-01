@@ -30,10 +30,10 @@ local function FormatMoney(copperAmount)
 
     local moneyString = ""
     if gold > 0 then
-        moneyString = gold .. "|cffffd700o|r "
+        moneyString = gold .. "|cffffd700g|r "
     end
     if silver > 0 or gold > 0 then
-        moneyString = moneyString .. silver .. "|cffc7c7c7p|r "
+        moneyString = moneyString .. silver .. "|cffc7c7c7s|r "
     end
     moneyString = moneyString .. copper .. "|cffeda55fc|r"
     return moneyString
@@ -51,14 +51,14 @@ local QUALITY_FLAG = {
 local TYPE_FLAG = {}
 do
     local weapon, armor, _, consumable, glyph, tradeGoods, _, _, recipe, gem, misc = GetAuctionItemClasses()
-    TYPE_FLAG[weapon or "Arma"]           = "sellTypeWeapon"
-    TYPE_FLAG[armor or "Armadura"]             = "sellTypeArmor"
-    TYPE_FLAG[consumable or "Consumible"]   = "sellTypeConsumable"
-    TYPE_FLAG[tradeGoods or "Objetos comerciables"]  = "sellTypeTradeGoods"
-    TYPE_FLAG[recipe or "Receta"]           = "sellTypeRecipe"
+    TYPE_FLAG[weapon or "Weapon"]           = "sellTypeWeapon"
+    TYPE_FLAG[armor or "Armor"]             = "sellTypeArmor"
+    TYPE_FLAG[consumable or "Consumable"]   = "sellTypeConsumable"
+    TYPE_FLAG[tradeGoods or "Trade Goods"]  = "sellTypeTradeGoods"
+    TYPE_FLAG[recipe or "Recipe"]           = "sellTypeRecipe"
     TYPE_FLAG[gem or "Gem"]                 = "sellTypeGem"
-    TYPE_FLAG[glyph or "Glifo"]             = "sellTypeGlyph"
-    TYPE_FLAG[misc or "Miscelánea"]      = "sellTypeMisc"
+    TYPE_FLAG[glyph or "Glyph"]             = "sellTypeGlyph"
+    TYPE_FLAG[misc or "Miscellaneous"]      = "sellTypeMisc"
 end
 
 local function SellsPoorQuality()

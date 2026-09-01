@@ -69,7 +69,7 @@ function UIDropDownMenu_Refresh2(frame, useValue, dropdownLevel)
 		end
 
 		-- If checked show check image
-		checkImage = _G["DropDownList"..dropdownLevel.."Button"..i.."Comprobar"];
+		checkImage = _G["DropDownList"..dropdownLevel.."Button"..i.."Check"];
 		if ( checked ) then
 			if ( useValue ) then
 				UIDropDownMenu_SetText(frame, button.value);

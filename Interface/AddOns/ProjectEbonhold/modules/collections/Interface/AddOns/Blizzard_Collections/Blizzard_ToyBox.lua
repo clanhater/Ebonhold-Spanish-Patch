@@ -114,31 +114,31 @@ function ToyBoxOptionsMenu_Init(self, level)
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Developer";
+		info.text = "Desarrollador";
 		info.isTitle = true;
 		info.notCheckable = true;
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = ezCollections:HasToy(toyID) and "Lock" or "Unlock";
+		info.text = ezCollections:HasToy(toyID) and "Bloquear" or "Desbloquear";
 		info.notCheckable = true;
 		info.func = function() ezCollections:SendAddonMessage(format("DEV:%sLOCKTOY:%d", ezCollections:HasToy(toyID) and "" or "UN", toyID)); end;
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Add Item";
+		info.text = "Añadir objeto";
 		info.notCheckable = true;
 		info.func = function() ezCollections:SendAddonCommand(format(".additem %d", ToyBox.menuItemID)); end;
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Delete Item";
+		info.text = "Eliminar objeto";
 		info.notCheckable = true;
 		info.func = function() ezCollections:SendAddonCommand(format(".additem %d -1", ToyBox.menuItemID)); end;
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Clear Cooldown";
+		info.text = "Restablecer reutilización";
 		info.notCheckable = true;
 		info.func = function() table.wipe(ezCollections.ItemCooldowns); SendChatMessage(".cooldown", "SAY"); end;
 		UIDropDownMenu_AddButton(info);

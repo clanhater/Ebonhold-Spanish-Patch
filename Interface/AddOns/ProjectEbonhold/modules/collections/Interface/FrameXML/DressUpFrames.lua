@@ -183,7 +183,7 @@ function DressUpTexturePath(raceFileName)
 		if ezCollections.Config.Wardrobe.DressUpGnomeTrollBackground then
 			return [[Interface\AddOns\ProjectEbonhold\modules\collections\Interface\DressUpFrame\DressUpBackground-Gnome]];
 		end
-		raceFileName = "Enano";
+		raceFileName = "Dwarf";
 	elseif ( strupper(fileName) == "TROLL" ) then
 		if ezCollections.Config.Wardrobe.DressUpGnomeTrollBackground then
 			return [[Interface\AddOns\ProjectEbonhold\modules\collections\Interface\DressUpFrame\DressUpBackground-Troll]];

@@ -207,6 +207,3 @@ modules\prestige\prestige.lua
 # ProjectEbonhold.EchoJournal, skillTreeFrame, EbonholdPrestigeFrame) already
 # exist.
 modules\progression\character_progression.lua
-
-# Actualizaciones automáticas parche en Español
-patch_version.lua

@@ -46,7 +46,7 @@ SlashCmdList["PECOLLDIAG"] = function()
         line(("  sources=%d  source[1]=%s  GetItemInfo(source)=%s"):format(srcs and #srcs or 0, tostring(srcID), tostring(srcName)))
         local ok, cam = pcall(function() return C_TransmogCollection.GetAppearanceCameraID(vid, catID) end)
         line(("  camera pcall ok=%s value=%s"):format(tostring(ok), tostring(cam)))
-        line("  (vuelve a ejecutar /colldiag tras unos segundos; GetItemInfo debería pasar de nil a un nombre)")
+        line("  (re-run /colldiag after a few seconds; GetItemInfo should turn from nil to a name)")
     end
 end
 SLASH_PECOLLDIAG2 = "/cd"
@@ -114,7 +114,7 @@ SlashCmdList["PEWPCHECK"] = function(msg)
             end)
         end
     end
-    DEFAULT_CHAT_FRAME:AddMessage("|cff66ccff[wpcheck]|r actualizados "..n.." modelo(s) de tipo arma")
+    DEFAULT_CHAT_FRAME:AddMessage("|cff66ccff[wpcheck]|r actualizados "..n.." weapon-typed model(s)")
 end
 
 -- Clear all applied transmog on the character, for free (also un-hides slots).

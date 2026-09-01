@@ -38,7 +38,7 @@
 				<Texture parentKey="Highlight" file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD" setAllPoints="true" hidden="true"/>
 			</Layer>
 			<Layer level="ARTWORK">
-				<Texture parentKey="Comprobar" file="Interface\Buttons\UI-CheckBox-Check" hidden="false">
+				<Texture parentKey="Check" file="Interface\Buttons\UI-CheckBox-Check" hidden="false">
 					<Size x="16" y="16"/>
 				</Texture>
 				<Texture parentKey="Icon" hidden="false">
@@ -291,7 +291,7 @@
 						<Anchor point="TOP" x="0" y="-20"/>
 					</Anchors>
 				</FontString>
-				<Texture parentKey="Separador">
+				<Texture parentKey="Separator">
 					<Size x="276" y="1"/>
 					<Anchors>
 						<Anchor point="TOP" x="0" y="-127"/>
@@ -346,7 +346,7 @@
 				</Scripts>
 				<FontString inherits="ChatFontNormal"/>
 			</EditBox>
-			<Button parentKey="AcceptButton" inherits="StaticPopupButtonTemplate" text="ACCEPT">
+			<Button parentKey="AcceptButton" inherits="StaticPopupButtonTemplate" text="ACEPTAR">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="25" y="-80"/>
 				</Anchors>
@@ -357,7 +357,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCEL">
+			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCELAR">
 				<Anchors>
 					<Anchor point="TOPRIGHT" x="-25" y="-80"/>
 				</Anchors>
@@ -407,7 +407,7 @@
 		</Size>
 		<Layers>
 			<Layer level="BACKGROUND">
-				<Texture parentKey="Fallida" file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD" hidden="true">
+				<Texture parentKey="Failed" file="Interface\QuestFrame\UI-QuestTitleHighlight" alphaMode="ADD" hidden="true">
 					<Anchors>
 						<Anchor point="TOPLEFT" />
 						<Anchor point="BOTTOMRIGHT" />
@@ -884,7 +884,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCEL">
+			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCELAR">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentAcceptButton" relativePoint="RIGHT" x="13" y="0"/>
 				</Anchors>

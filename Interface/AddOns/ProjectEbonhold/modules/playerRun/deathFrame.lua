@@ -128,7 +128,7 @@ local function ShowConfirmationPopup(title, message, onConfirm)
     local yesButton = CreateFrame("Button", nil, popup, "UIPanelButtonTemplate")
     yesButton:SetSize(100, 30)
     yesButton:SetPoint("BOTTOM", popup, "BOTTOM", -60, 25)
-    yesButton:SetText("Yes")
+    yesButton:SetText("Si")
     yesButton:SetFrameStrata("FULLSCREEN_DIALOG")
     yesButton:SetFrameLevel(1100)
     yesButton:SetScript("OnClick", function()
@@ -201,7 +201,7 @@ local function GetAllPlayerItems()
                         texture = itemTexture,
                         rarity = itemRarity or 0,
                         slot = slot,
-                        slotName = slotNames[slot] or "Ranura " .. slot,
+                        slotName = slotNames[slot] or "Slot " .. slot,
                         itemEntry = itemEntry
                     })
                 end

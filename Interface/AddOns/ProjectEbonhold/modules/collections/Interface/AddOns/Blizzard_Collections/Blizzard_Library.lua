@@ -104,13 +104,13 @@ function BookOptionsMenu_Init(self, level)
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Developer";
+		info.text = "Desarrollador";
 		info.isTitle = true;
 		info.notCheckable = true;
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = ezCollections:HasBook(Library.menuBookID) and "Lock" or "Unlock";
+		info.text = ezCollections:HasBook(Library.menuBookID) and "Bloquear" or "Desbloquear";
 		info.notCheckable = true;
 		info.func = function() ezCollections:SendAddonMessage(format("DEV:%sLOCKBOOK:%d", ezCollections:HasBook(Library.menuBookID) and "" or "UN", Library.menuBookID)); end;
 		UIDropDownMenu_AddButton(info);
@@ -119,19 +119,19 @@ function BookOptionsMenu_Init(self, level)
 		for _, source in ezCollections:IterateOverTableOrValue(book.sources) do
 			if source > 0 then
 				info = UIDropDownMenu_CreateInfo();
-				info.text = "Add Item";
+				info.text = "Añadir objeto";
 				info.notCheckable = true;
 				info.func = function() ezCollections:SendAddonCommand(format(".additem %d", source)); end;
 				UIDropDownMenu_AddButton(info);
 
 				info = UIDropDownMenu_CreateInfo();
-				info.text = "Delete Item";
+				info.text = "Eliminar objeto";
 				info.notCheckable = true;
 				info.func = function() ezCollections:SendAddonCommand(format(".additem %d -1", source)); end;
 				UIDropDownMenu_AddButton(info);
 			elseif source < 0 then
 				info = UIDropDownMenu_CreateInfo();
-				info.text = "Teleport To Object";
+				info.text = "Teletransportarse al objeto";
 				info.notCheckable = true;
 				info.func = function() ezCollections:SendAddonCommand(format(".go object id %d", -source)); end;
 				UIDropDownMenu_AddButton(info);
@@ -207,9 +207,9 @@ function LibrarySpellButton_OnEnter(self)
 	end
 
 	if ezCollections.Developer then
-		GameTooltip:AddLine("Book ID: "..self.bookID, 0.5, 0.5, 0.5);
+		GameTooltip:AddLine("ID del libro: "..self.bookID, 0.5, 0.5, 0.5);
 		for _, source in ezCollections:IterateOverTableOrValue(book.sources) do
-			GameTooltip:AddLine((source > 0 and "Item" or "Object").." ID: "..abs(source), 0.5, 0.5, 0.5);
+			GameTooltip:AddLine((source > 0 and "Objeto" or "Objeto").." ID: "..abs(source), 0.5, 0.5, 0.5);
 		end
 	end
 

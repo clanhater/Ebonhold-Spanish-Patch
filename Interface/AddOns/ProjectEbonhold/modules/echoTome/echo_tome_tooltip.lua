@@ -38,7 +38,7 @@ local function AddEchoLines(tooltip)
     local echoId, data = GetEchoForItem(itemId)
     if not echoId then return end
 
-    local echoName = GetSpellInfo(echoId) or ("Hechizo " .. echoId)
+    local echoName = GetSpellInfo(echoId) or ("Spell " .. echoId)
     local qc = qualityColors[data.quality or 0] or qualityColors[0]
 
     tooltip:AddLine(" ")

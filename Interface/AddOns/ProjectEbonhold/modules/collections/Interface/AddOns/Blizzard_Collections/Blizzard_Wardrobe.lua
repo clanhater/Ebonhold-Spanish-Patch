@@ -538,12 +538,12 @@ function WardrobeTransmogFrame_ConfirmApplyPending()
 		WardrobeTransmogFrame_UpdateApplyButton();
 		return;
 	end
-	local slots = (numChanges == 1) and "1 slot" or format("%d slots", numChanges);
+	local slots = (numChanges == 1) and "1 casilla" or format("%d casillas", numChanges);
 	local message;
 	if ( cost > 0 ) then
-		message = format("Apply the pending appearance changes to %s for %s?", slots, GetCoinTextureString(cost));
+		message = format("¿Aplicar los cambios de apariencia pendientes a %s por %s?", slots, GetCoinTextureString(cost));
 	else
-		message = format("Apply the pending appearance changes to %s? This one costs nothing.", slots);
+		message = format("¿Aplicar los cambios de apariencia pendientes a %s? Este no cuesta nada.", slots);
 	end
 	StaticPopup_Show("CONFIRM_APPLY_TRANSMOG", message);
 	WardrobeTransmogFrame_UpdateApplyButton();
@@ -2335,7 +2335,7 @@ function WardrobeItemsCollectionMixin:RefreshAppearanceTooltip(cycle)
 		-- sourceText required: GetAppearanceSourceTextAndColor concatenates
 		-- sourceType when it's absent.
 		sources = { { sourceID = self.tooltipVisualID, visualID = self.tooltipVisualID,
-			isCollected = true, sourceText = "Weapon Illusion" } };
+			isCollected = true, sourceText = "Ilusión de arma" } };
 	else
 		sources = CollectionWardrobeUtil.GetSortedAppearanceSources(self.tooltipVisualID, self.activeCategory);
 	end
@@ -2886,7 +2886,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 						for i = 1, UIDROPDOWNMENU_MAXBUTTONS do
 							local b = _G["DropDownList1Button"..i];
 							if b and b:IsShown() and b.menuList == "SourceMask" then
-								b:SetText(format("Sources: |cFF00FF00%s|r", devSource.sourceText or ""));
+								b:SetText(format("Procedencias: |cFF00FF00%s|r", devSource.sourceText or ""));
 							end
 							b = _G["DropDownList2Button"..i];
 							if b and b:IsShown() and b.value then
@@ -2945,7 +2945,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 					for i = 1, UIDROPDOWNMENU_MAXBUTTONS do
 						local b = _G["DropDownList1Button"..i];
 						if b and b:IsShown() and b.menuList == "Subscription" then
-							b:SetText(format("Subscription: |cFF00FF00%s|r", subscription ~= 0 and ezCollections.Subscriptions[subscription].Name or "- NONE -"));
+							b:SetText(format("Suscripción: |cFF00FF00%s|r", subscription ~= 0 and ezCollections.Subscriptions[subscription].Name or "- NONE -"));
 						end
 						b = _G["DropDownList2Button"..i];
 						if b and b:IsShown() and b.value then
@@ -2990,7 +2990,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 					for i = 1, UIDROPDOWNMENU_MAXBUTTONS do
 						local b = _G["DropDownList1Button"..i];
 						if b and b:IsShown() and b.menuList == "Camera" then
-							b:SetText(format("Camera: |cFF00FF00%s|r", camera ~= 0 and select(6, unpack(ezCollections.Cache.Cameras[button.value])) or "- NONE -"));
+							b:SetText(format("Cámara: |cFF00FF00%s|r", camera ~= 0 and select(6, unpack(ezCollections.Cache.Cameras[button.value])) or "- NONE -"));
 						end
 						b = _G["DropDownList2Button"..i];
 						if b and b:IsShown() and b.value then
@@ -3119,7 +3119,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = "Developer";
+		info.text = "Desarrollador";
 		info.isTitle = true;
 		info.notCheckable = true;
 		UIDropDownMenu_AddButton(info);
@@ -3143,7 +3143,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 		UIDropDownMenu_AddButton(info);
 
 		info = UIDropDownMenu_CreateInfo();
-		info.text = ezCollections:HasSkin(appearanceID) and "Lock" or "Unlock";
+		info.text = ezCollections:HasSkin(appearanceID) and "Bloquear" or "Desbloquear";
 		info.notCheckable = true;
 		info.func = function() ezCollections:SendAddonMessage(format("DEV:%sLOCKSKIN:%d", ezCollections:HasSkin(appearanceID) and "" or "UN", appearanceID)); end;
 		UIDropDownMenu_AddButton(info);
@@ -3154,7 +3154,7 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 			local subscription = ezCollections:GetSubscriptionForSkin(appearanceID);
 
 			info = UIDropDownMenu_CreateInfo();
-			info.text = format("|cFF%sObtainable|r", skin.Unobtainable and "FF0000" or "FFFFFF");
+			info.text = format("|cFF%sObtenible|r", skin.Unobtainable and "FF0000" or "FFFFFF");
 			info.checked = not skin.Unobtainable;
 			info.func = function(_, _, _, checked)
 				skin.Unobtainable = checked or nil;
@@ -3163,21 +3163,21 @@ function WardrobeCollectionFrameRightClickDropDown_Init(self, level, menuList)
 			UIDropDownMenu_AddButton(info);
 
 			info = UIDropDownMenu_CreateInfo();
-			info.text = format("Sources: |cFF00FF00%s|r", devSource.sourceText or "");
+			info.text = format("Procedencias: |cFF00FF00%s|r", devSource.sourceText or "");
 			info.notCheckable = true;
 			info.hasArrow = true;
 			info.menuList = "SourceMask";
 			UIDropDownMenu_AddButton(info);
 
 			info = UIDropDownMenu_CreateInfo();
-			info.text = format("Subscription: |cFF00FF00%s|r", subscription and subscription.Name or "- NONE -");
+			info.text = format("Suscripción: |cFF00FF00%s|r", subscription and subscription.Name or "- NONE -");
 			info.notCheckable = true;
 			info.hasArrow = true;
 			info.menuList = "Subscription";
 			UIDropDownMenu_AddButton(info);
 
 			info = UIDropDownMenu_CreateInfo();
-			info.text = format("Camera: |cFF00FF00%s|r", camera and select(6, unpack(camera)) or "- NONE -");
+			info.text = format("Cámara: |cFF00FF00%s|r", camera and select(6, unpack(camera)) or "- NINGUNO -");
 			info.notCheckable = true;
 			info.hasArrow = true;
 			info.menuList = "Camera";
@@ -3715,9 +3715,9 @@ function WardrobeFilterDropDown_InitializeItems(self, level)
 
 			if ezCollections.Developer then
 				UIDropDownMenu_AddSeparator(level);
-				UIDropDownMenu_AddButton({ notCheckable = true, isTitle = true, text = "Developer" }, level);
+				UIDropDownMenu_AddButton({ notCheckable = true, isTitle = true, text = "Desarrollador" }, level);
 
-				info.text = "Show |cFF00FF00Obtainable|r";
+				info.text = "Mostrar |cFF00FF00Obtenibles|r";
 				info.func = function(_, _, _, value)
 					ezCollections:SetCVarBool("transmogrifyShowObtainable", value);
 					ezCollections:RaiseEvent("TRANSMOG_COLLECTION_UPDATED");
@@ -3725,9 +3725,9 @@ function WardrobeFilterDropDown_InitializeItems(self, level)
 				info.checked = function() return ezCollections:GetCVarBool("transmogrifyShowObtainable"); end;
 				UIDropDownMenu_AddButton(info, level);
 
-				info.text = "Show |cFFFF0000Unobtainable|r";
+				info.text = "Mostrar |cFFFF0000Inobtenibles|r";
 				info.tooltipTitle = info.text;
-				info.tooltipText = "Requires config option Collections.Addon.Dev.SeeUnobtainable to be enabled on the server. For use only on local and test servers."
+				info.tooltipText = "Requiere que la opción de configuración Collections.Addon.Dev.SeeUnobtainable esté activada en el servidor. Para uso exclusivo en servidores locales y de prueba."
 				info.tooltipOnButton = 1;
 				info.func = function(_, _, _, value)
 					ezCollections:SetCVarBool("transmogrifyShowUnobtainable", value);

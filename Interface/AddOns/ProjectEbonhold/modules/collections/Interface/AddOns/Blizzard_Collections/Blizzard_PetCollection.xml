@@ -166,7 +166,7 @@
 							</Anchors>
 						</Texture>
 						<Texture name="$parentLockIcon" parentKey="LockIcon" file="Interface\AddOns\ProjectEbonhold\modules\collections\Interface\PetBattles\PetBattle-LockIcon" setAllPoints="true" hidden="true"/>
-						<FontString name="$parentSpellName" inherits="GameFontNormal" maxLines="2" justifyH="RIGHT" parentKey="spellname" text="Summon Random Favorite Pet">
+						<FontString name="$parentSpellName" inherits="GameFontNormal" maxLines="2" justifyH="RIGHT" parentKey="spellname" text="Invocar mascota favorita aleatoria">
 							<Size x="170" y="0"/>
 							<Color r="1" g="1" b="1"/>
 							<Anchors>
@@ -210,7 +210,7 @@
 					<OnHide function="PetJournal_ClearSearch"/>
 				</Scripts>
 			</EditBox>
-			<Button name="$parentFilterButton" inherits="UIResettableDropdownButtonTemplate" text="FILTER">
+			<Button name="$parentFilterButton" inherits="UIResettableDropdownButtonTemplate" text="FILTRO">
 				<!--KeyValues>
 					<KeyValue key="resetFunction" value="PetJournalFilterDropDown_ResetFilters" type="global"/>
 				</KeyValues-->

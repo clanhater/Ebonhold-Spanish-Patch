@@ -230,7 +230,7 @@ local function FormatGold(n)
     return (s:gsub("^,", ""))
 end
 -- gold coin icon inlined in the button label (refreshed with the real cost in Redraw)
-local UNLOCK_LABEL = "Comprar"
+local UNLOCK_LABEL = "Purchase"
 
 -- confirmation before actually sending CMSG_EXTBANK_UNLOCK
 StaticPopupDialogs["EXTBANK_UNLOCK_CONFIRM"] = {
@@ -383,7 +383,7 @@ local function BuildUI()
     shdr:SetWidth(220); shdr:SetHeight(64)
     shdr:SetPoint("TOP", 0, 12)
     sideTitle = sideFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    sideTitle:SetPoint("TOP", shdr, "TOP", 0, -14); sideTitle:SetText("Bag")
+    sideTitle:SetPoint("TOP", shdr, "TOP", 0, -14); sideTitle:SetText("BOLSA")
     local sclose = CreateFrame("Button", nil, sideFrame, "UIPanelCloseButton")
     sclose:SetPoint("TOPRIGHT", -8, -8)
     sclose:SetScript("OnClick", function() sideHidden = true; sideFrame:Hide() end)
@@ -512,7 +512,7 @@ local function BuildUI()
             -- full link so enchant / random suffix show, not just the base item
             GameTooltip:SetHyperlink(("item:%d:%d:0:0:0:0:%d"):format(
                 d.itemId, d.enchant or 0, d.randomProp or 0))
-            if d.count and d.count > 1 then GameTooltip:AddLine("Stack: " .. d.count, 0.7, 0.7, 0.7) end
+            if d.count and d.count > 1 then GameTooltip:AddLine("Cantidad: " .. d.count, 0.7, 0.7, 0.7) end
             GameTooltip:Show()
         end)
         btn:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -548,7 +548,7 @@ local function BuildUI()
     -- "back to the personal bank" button along the bottom; only shown while a
     -- banker session is live (bankOpen), since it swaps the two windows.
     bankBtn = utils.CreateSimpleCustomButton(frame,
-        "|TInterface\\Icons\\INV_Misc_Coin_02:16:16:0:-1|t Personal Bank",
+        "|TInterface\Icons\INV_Misc_Coin_02:16:16:0:-1|t Banco personal",
         function() ExtBank_Close() end,   -- Close restores the bank when the session is live
         170, 32)
     bankBtn:SetPoint("BOTTOM", frame, "BOTTOM", 0, 14)

@@ -12,7 +12,7 @@
 						<Anchor point="RIGHT" relativePoint="LEFT" x="20"/>
 					</Anchors>
 				</Texture>
-				<FontString parentKey="Nombre" inherits="GameFontNormalSmall2" justifyH="LEFT" maxLines="1">
+				<FontString parentKey="Name" inherits="GameFontNormalSmall2" justifyH="LEFT" maxLines="1">
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="$parentIcon" relativePoint="RIGHT" x="7"/>
 						<Anchor point="RIGHT"/>

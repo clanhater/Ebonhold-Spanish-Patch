@@ -56,7 +56,7 @@ ProjectEbonhold.onEventReceived(ProjectEbonhold.SS.SEND_CONTENT_VOID_STORAGE, fu
         end
     end
     
-    print("Cargados", ((#parts - 1) / 2), "objetos para la pestaña", tabIndex)
+    print("Loaded", ((#parts - 1) / 2), "objetos para la pestaña", tabIndex)
     
     if VoidStorageFrame and VoidStorageFrame.UpdateDisplay then
         VoidStorageFrame:UpdateDisplay()

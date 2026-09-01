@@ -80,7 +80,7 @@ ProjectEbonhold.onEventReceived(ProjectEbonhold.SS.SEND_LEARNED_AFFIXES, functio
             local spellName, _, spellIcon = GetSpellInfo(spellId)
             table.insert(ExtractionService.learnedAffixes, {
                 id = spellId,
-                name = spellName or ("Afijo " .. spellId),
+                name = spellName or ("Affix " .. spellId),
                 icon = spellIcon,
                 applyCost = applyCost,
                 appliedCount = appliedCount,

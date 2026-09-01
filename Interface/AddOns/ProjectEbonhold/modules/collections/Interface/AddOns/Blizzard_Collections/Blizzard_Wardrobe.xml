@@ -3634,12 +3634,12 @@
 					<OnUpdate function="WardrobeTransmogFrame_OnUpdate"/>
 				</Scripts>
 			</Frame>
-			<Button name="$parentTab1" inherits="CollectionsJournalTabCutoff" text="MOUNTS" id="1">
+			<Button name="$parentTab1" inherits="CollectionsJournalTabCutoff" text="MONTURAS" id="1">
 				<Anchors>
 					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="11" y="2"/>
 				</Anchors>
 			</Button>
-			<Button name="$parentTab2" inherits="CollectionsJournalTabCutoff" text="COMPANIONS" id="2">
+			<Button name="$parentTab2" inherits="CollectionsJournalTabCutoff" text="COMPAÑEROS" id="2">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT" x="-16" y="0"/>
 				</Anchors>
@@ -3647,7 +3647,7 @@
 			<!-- [shell] Toy Box (3), Library/Heirloom (4) and Appearances/Wardrobe (5)
 			     tabs removed; Transmogrify keeps name Tab6 / id 6 and re-anchors to
 			     Companions (Tab2). numTabs stays 6 (missing tabs are nil-skipped). -->
-			<Button name="$parentTab3" inherits="CollectionsJournalTab" text="TRANSMOGRIFY" id="3">
+			<Button name="$parentTab3" inherits="CollectionsJournalTab" text="TRANSMOGRIFICAR" id="3">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab2" relativePoint="RIGHT" x="-16" y="0"/>
 				</Anchors>
@@ -3944,7 +3944,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCEL">
+			<Button parentKey="CancelButton" inherits="StaticPopupButtonTemplate" text="CANCELAR">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentAcceptButton" relativePoint="RIGHT" x="13" y="0"/>
 				</Anchors>
@@ -4135,7 +4135,7 @@
 					</DressUpModel>
 				</Frames>
 			</Frame>
-			<Button name="$parentAcceptButton" parentKey="AcceptButton" inherits="StaticPopupButtonTemplate" text="OKAY">
+			<Button name="$parentAcceptButton" parentKey="AcceptButton" inherits="StaticPopupButtonTemplate" text="ACEPTAR">
 				<Anchors>
 					<Anchor point="BOTTOM" y="16" />
 				</Anchors>

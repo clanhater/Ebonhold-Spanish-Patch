@@ -209,7 +209,7 @@ ProjectEbonhold.UITexts = {
         },
         intensity = {
             title = function(intensity)
-                return "Intensity: " .. intensity
+                return "Intensidad: " .. intensity
             end,
             description1 =
             "Derrotar enemigos más rápido aumenta tu intensidad a mayor velocidad, mientras que matar enemigos grises no otorga intensidad. Tu intensidad decae gradualmente fuera de combate. A continuación se muestran los efectos de cada umbral de intensidad. ",
@@ -220,7 +220,7 @@ ProjectEbonhold.UITexts = {
     ui = {
         echoes = function(count) return "Ecos (" .. count .. ")" end,
         stack = function(current, max)
-            return "Stack: " .. current .. "/" .. max
+            return "Cantidad: " .. current .. "/" .. max
         end
     }
 }
@@ -283,7 +283,7 @@ ProjectEbonhold.DeathTexts = {
         },
         soulstone = {
             title = function(text)
-                return "Confirmar uso de " .. text .. ""
+                return "Confirmar uso de " .. text .. " de uso"
             end,
             message = function(text, remaining)
                 return "¿Usar tu " ..
@@ -313,7 +313,7 @@ ProjectEbonhold.DeathTexts = {
             title = "Autorresurrección",
             line1 = "Revive sin ninguna penalización.",
             line2 = function(remaining)
-                return "Tienes " .. remaining .. " remaining."
+                return "Tienes " .. remaining .. " restantes."
             end
         },
         soulPointsRez = {

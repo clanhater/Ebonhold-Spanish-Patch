@@ -32,9 +32,9 @@ function skillTree_DebugConnections(nodeId)
   
   
   print("ID del nodo: " .. nodeId)
-  print("State: " .. (btn.state or "unknown"))
-  print("Es nodo inicial: " .. tostring(isStartingNode and isStartingNode(nodeId) or "unknown"))
-  print("Rango actual: " .. (getNodeRank and getNodeRank(nodeId) or "unknown"))
+  print("Estado: " .. (btn.state or "desconocido"))
+  print("Es nodo inicial: " .. tostring(isStartingNode and isStartingNode(nodeId) or "desconocido"))
+  print("Rango actual: " .. (getNodeRank and getNodeRank(nodeId) or "desconocido"))
   print("Es de opción múltiple: " .. tostring(btn.isMultipleChoice or false))
   
   if btn.isMultipleChoice then
@@ -58,7 +58,7 @@ function skillTree_DebugConnections(nodeId)
           isTaken = rank > 0
         end
         
-        print("  - Nodo " .. connectedId .. ": " .. status .. " (Rank: " .. rank .. ", Aprendido: " .. tostring(isTaken) .. ")")
+        print("  - Nodo " .. connectedId .. ": " .. status .. " (Rango: " .. rank .. ", Aprendido: " .. tostring(isTaken) .. ")")
       else
         print("  - Nodo " .. connectedId .. ": NO ENCONTRADO")
       end
@@ -148,7 +148,7 @@ function skillTree_DebugStartingNodes()
     local btn = nodesById[nodeId]
     local state = btn and btn.state or "unknown"
     local rank = getNodeRank and getNodeRank(nodeId) or 0
-    print("  - Nodo " .. nodeId .. ": " .. state .. " (Rank: " .. rank .. ")")
+    print("  - Nodo " .. nodeId .. ": " .. state .. " (Rango: " .. rank .. ")")
   end
   
   print("|cff00FF00=== FIN DE DEPURACIÓN DE NODOS INICIALES ===|r")
@@ -193,18 +193,18 @@ function skillTree_DebugLoadouts()
   local count = 0
   for name, loadout in pairs(savedLoadouts) do
     count = count + 1
-    print("Loadout: " .. name)
-    print("  Class: " .. (loadout.class or "unknown"))
-    print("  Talents: " .. (loadout.talents and #loadout.talents or "0"))
-    print("  Ranks: " .. (loadout.ranks and "available" or "no disponible"))
-    print("  Choices: " .. (loadout.choices and "available" or "no disponible"))
+    print("Build: " .. name)
+    print(" Clase: " .. (loadout.class or "desconocido"))
+    print(" Talentos: " .. (loadout.talents and #loadout.talents or "0"))
+    print(" Rangos: " .. (loadout.ranks and "disponible" or "no disponible"))
+    print(" Elecciones: " .. (loadout.choices and "disponible" or "no disponible"))
   end
   
   if count == 0 then
     print("No se encontraron builds guardadas")
   end
   
-  print("Build actual: " .. (currentLoadoutName or "none"))
+  print("Build actual: " .. (currentLoadoutName or "ninguno"))
   print("|cff00FF00=== FIN DE DEPURACIÓN DE BUILDS ===|r")
 end
 
@@ -218,13 +218,13 @@ end
 
 function skillTree_DebugHelp()
   print("|cff00FF00=== COMANDOS DE DEPURACIÓN DE skillTree ===|r")
-  print("/script skillTree_DebugConnections(nodeId) - Debug specific node connections")
-  print("/script skillTree_DebugTree() - Debug overall tree state")
-  print("/script skillTree_DebugStartingNodes() - List all starting nodes")
-  print("/script skillTree_DebugAllConnections() - Show all node connections")
-  print("/script skillTree_DebugLoadouts() - Debug saved loadouts")
-  print("/script skillTree_ToggleDebug() - Enable/disable debug messages")
-  print("/script skillTree_DebugHelp() - Show this help")
+  print("/script skillTree_DebugConnections(nodeId) - Depurar conexiones de nodo específicas")
+  print("/script skillTree_DebugTree() - Depurar estado general del árbol")
+  print("/script skillTree_DebugStartingNodes() - Listar todos los nodos iniciales")
+  print("/script skillTree_DebugAllConnections() - Mostrar todas las conexiones de nodo")
+  print("/script skillTree_DebugLoadouts() - Depurar builds guardadas")
+  print("/script skillTree_ToggleDebug() - Activar/desactivar mensajes de depuración")
+  print("/script skillTree_DebugHelp() - Mostrar esta ayuda")
   print("|cffFFFFFFEjemplo: /script skillTree_DebugConnections(30)|r")
   print("|cff00FF00=== FIN DE AYUDA DE DEPURACIÓN ===|r")
 end

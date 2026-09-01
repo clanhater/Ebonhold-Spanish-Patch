@@ -27,7 +27,7 @@ local function EditSpecName(specIndex)
     local currentName = SpecCustomNames[specIndex] or ""
 
     StaticPopupDialogs["EDIT_SPEC_NAME"] = {
-        text = "Editar nombre para " .. defaultNames[specIndex] .. " Specialization:",
+        text = "Editar nombre para " .. defaultNames[specIndex] .. " Especialización:",
         button1 = "Guardar",
         button2 = "Cancelar",
         hasEditBox = true,
@@ -234,7 +234,7 @@ local function CreateResetButton()
         local selectedSpec = GetSpecName(selectedSpecIndex)
         StaticPopupDialogs["RESET_TALENTS_CONFIRM"] = {
             text = "¿Seguro que quieres restablecer todos tus talentos?\n\n|cffFFD700Especialización actual: " .. selectedSpec .. "|r",
-            button1 = "Yes",
+            button1 = "Si",
             button2 = "No",
             OnAccept = function()
                 if ProjectEbonhold and ProjectEbonhold.SpecService and ProjectEbonhold.SpecService.ResetTalents then

@@ -90,8 +90,8 @@ end
 -- Confirmation popup
 StaticPopupDialogs["EBONHOLD_CONFIRM_REROLL"] = {
     text = "¿Cambiar selección?",
-    button1 = "Confirmar",
-    button2 = "Cancelar",
+    button1 = "Confirm",
+    button2 = "Cancel",
     OnShow = function(self)
         if ProjectEbonhold.ObjectivesService and ProjectEbonhold.ObjectivesService.GetRerollCost then
             local cost = ProjectEbonhold.ObjectivesService.GetRerollCost()
@@ -166,7 +166,7 @@ local function CreateObjectiveFrame(parent, index)
     frame.objectiveText = objectiveText
 
     -- Select button
-    local selectBtn = utils.CreateSimpleCustomButton(frame, "Seleccionar", nil, 150, 38)
+    local selectBtn = utils.CreateSimpleCustomButton(frame, "Select", nil, 150, 38)
     selectBtn:SetPoint("BOTTOM", frame, "BOTTOM", 0, 30)
     frame.selectBtn = selectBtn
 
@@ -328,7 +328,7 @@ local function CreateMainFrame()
     -- Title
     local titleStr = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     titleStr:SetPoint("TOP", mainFrame, "TOP", 0, -25)
-    titleStr:SetText("OBJECTIVES")
+    titleStr:SetText("OBJETIVOS")
     titleStr:SetTextColor(1, 0.82, 0)
     mainFrame.titleStr = titleStr
 
@@ -356,7 +356,7 @@ local function CreateMainFrame()
         if ProjectEbonhold.ObjectivesService and ProjectEbonhold.ObjectivesService.GetRerollCost then
             cost = ProjectEbonhold.ObjectivesService.GetRerollCost()
         end
-        GameTooltip:AddLine("Cost: " .. GetCoinTextureString(cost), 1, 0.82, 0)
+        GameTooltip:AddLine("Coste: " .. GetCoinTextureString(cost), 1, 0.82, 0)
         if GetMoney() < cost then
             GameTooltip:AddLine("¡No tienes suficiente oro!", 1, 0.2, 0.2)
         end
@@ -676,7 +676,7 @@ gossipEventFrame:SetScript("OnEvent", function(self, event)
         end
 
         local npcName = GossipFrameNpcNameText and GossipFrameNpcNameText:GetText()
-        if npcName == "Tablón de objetivos" then
+        if npcName == "Objectives Board" then
             isInObjectivesGossip = true
             if GossipFrame then
                 GossipFrame:SetAlpha(0)

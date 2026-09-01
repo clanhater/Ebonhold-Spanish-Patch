@@ -144,16 +144,16 @@ INSTANCE_TYPE_BG = 3;
 INSTANCE_TYPE_ARENA = 4;
 
 PET_TYPE_SUFFIX = {
-[1] = "Humanoid",
-[2] = "Dragon",
-[3] = "Flying",
+[1] = "Humanoide",
+[2] = "Dragón",
+[3] = "Volador",
 [4] = "No-muerto",
-[5] = "Critter",
-[6] = "Magical",
+[5] = "Alimaña",
+[6] = "Mágico",
 [7] = "Elemental",
-[8] = "Beast",
-[9] = "Water",
-[10] = "Mechanical",
+[8] = "Bestia",
+[9] = "Agua",
+[10] = "Mecánico",
 };
 
 -- TRANSMOG

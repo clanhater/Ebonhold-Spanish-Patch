@@ -121,14 +121,14 @@ function GameTooltip:SetToyByItemID(itemID)
 			self:AddLine(unpack(line));
 		end
 		if bit.band(flags or 0, 0x100) ~= 0 then
-			if UnitFactionGroup("player") == "Horda" then
+			if UnitFactionGroup("player") == "Horde" then
 				self:AddLine(ITEM_REQ_HORDE, 1, 1, 1);
 			else
 				self:AddLine(ITEM_REQ_HORDE, 1, 0.125, 0.125);
 			end
 		end
 		if bit.band(flags or 0, 0x200) ~= 0 then
-			if UnitFactionGroup("player") == "Alianza" then
+			if UnitFactionGroup("player") == "Alliance" then
 				self:AddLine(ITEM_REQ_ALLIANCE, 1, 1, 1);
 			else
 				self:AddLine(ITEM_REQ_ALLIANCE, 1, 0.125, 0.125);
